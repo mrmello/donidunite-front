@@ -3,5 +3,11 @@
   max-height:100%;
   height: auto;
   width: auto;
-  filter: blur(5px) brightness(50%); 
+  filter: blur(5px) brightness(50%);
+}
+.background-img.small{
+  display: none;
+}
+.background-img.big{
+  display: block;
 }
