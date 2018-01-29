@@ -1,0 +1,33 @@
+{
+  "name": "donidunite-front",
+  "version": "1.0.0",
+  "description": "The front-end of an admin system of a Donut's store",
+  "dependencies": {
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-scripts": "1.1.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mrmello/donidunite-front.git"
+  },
+  "keywords": [
+    "reactjs",
+    "node",
+    "redux",
+    "es6",
+    "create-react-app"
+  ],
+  "author": "Marcos Mello",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mrmello/donidunite-front/issues"
+  },
+  "homepage": "https://github.com/mrmello/donidunite-front#readme"
+}
