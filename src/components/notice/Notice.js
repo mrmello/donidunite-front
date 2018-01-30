@@ -5,7 +5,7 @@ class Notice extends Component {
   render() {
     return (
       <div className="notice">
-        <h1 className="shadow">Site under constrution</h1>
+        <h1 className="shadow">Saindo do forno em breve!</h1>
       </div>
     );
   }
