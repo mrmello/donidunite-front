@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import './App.css';
 import Menu from '../menu/Menu';
+import Orders from '../orders/Orders';
 
-class App extends Component {
+export default class App extends Component {
   render() {
     return (
       <div className="App">
         <Menu />
+        <Orders />
       </div>
     );
   }
 }
-
-export default App;
