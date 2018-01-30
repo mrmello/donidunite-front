@@ -1,0 +1,24 @@
+.menu{
+  top: 5vh;
+  left: 5vw;
+  position: fixed;
+  box-shadow:15px 15px 50px grey;
+  border-radius: 4px;
+}
+
+@media screen and (max-width: 499px) {
+  .menu .ui.buttons{
+    display: none;
+  }
+  .menu .ui.vertical{
+    display: block;
+  }
+}
+@media screen and (min-width: 500px) {
+  .menu .ui.buttons{
+    display: block;
+  }
+  .menu .ui.vertical{
+    display: none;
+  }
+}
