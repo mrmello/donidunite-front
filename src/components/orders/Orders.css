@@ -1,4 +1,12 @@
-.orders .ui.raised.segment {
-  top: 25vh;
-  min-width: 87vw;
+@media screen and (max-width: 499px) {
+  .orders .ui.raised.segment {
+    top: 10vh;
+    min-width: 87vw;
+  }
+}
+@media screen and (min-width: 500px) {
+  .orders .ui.raised.segment {
+    top: 20vh;
+    min-width: 87vw;
+  }
 }

@@ -1,0 +1,8 @@
+.menu{
+  top: 5vh;
+  left: 5vw;
+  position: fixed;
+  box-shadow:15px 15px 50px grey;
+  border-radius: 4px;
+  z-index: 9
+}

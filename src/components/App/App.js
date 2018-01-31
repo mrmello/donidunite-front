@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import './App.css';
-import Menu from '../menu/Menu';
+import Header from '../header/Header';
 import Orders from '../orders/Orders';
 
 export default class App extends Component {
   render() {
     return (
       <div className="App">
-        <Menu />
+        <Header />
         <Orders />
       </div>
     );

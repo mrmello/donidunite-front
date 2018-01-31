@@ -12,13 +12,6 @@ export default class Menu extends Component {
           <button className="ui button">Despesas</button>
           <button className="ui button">Relatórios</button>
         </div>
-        <div className="ui pink vertical buttons">
-          <button className="ui button">Início</button>
-          <button className="ui button">Catálogo</button>
-          <button className="ui button">Pedidos</button>
-          <button className="ui button">Despesas</button>
-          <button className="ui button">Relatórios</button>
-        </div>
       </div>
     )
   }
