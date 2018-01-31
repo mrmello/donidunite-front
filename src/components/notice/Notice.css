@@ -1,8 +1,9 @@
 .notice{
   top: 35%;
-  position:absolute;
-  width: 100vw;
+  position: absolute;
+  width: 60vw;
   text-align: center;
+  left: 20vw;
 }
 
 h1{

@@ -3,23 +3,12 @@
   max-height:100%;
   height: 100vh;
   width: 100vw;
-  filter: blur(2px) brightness(50%);
+  filter: brightness(80%);
 }
 
-/* Media queries */
-@media screen and (max-width: 480px) {
-  .background-img.small{
-    display: block;
-  }
-  .background-img.big{
-    display: none;
-  }
+.background-img.small{
+  display: none;
 }
-@media screen and (min-width: 481px) {
-  .background-img.small{
-    display: none;
-  }
-  .background-img.big{
-    display: block;
-  }
+.background-img.big{
+  display: block;
 }

@@ -5,8 +5,7 @@ class BackgroundIMG extends Component {
   render() {
     return (
       <div className="img-wrapper">
-        <img alt="Doniduni-tê" className="background-img big" src={require('../../assets/donuts.jpg')} />
-        <img alt="Doniduni-tê" className="background-img small" src={require('../../assets/donuts-medium.JPG')} />
+        <img alt="Doniduni-tê" className="background-img big" src={require('../../assets/donidunite1.png')} />
       </div>
     );
   }
