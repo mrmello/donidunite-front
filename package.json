@@ -3,9 +3,13 @@
   "version": "1.0.0",
   "description": "The front-end of an admin system of a Donut's store",
   "dependencies": {
+    "axios": "^0.17.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "react-redux": "^5.0.6",
     "react-scripts": "1.1.0",
+    "redux": "^3.7.2",
+    "redux-thunk": "^2.2.0",
     "semantic-ui-css": "^2.2.14"
   },
   "scripts": {
