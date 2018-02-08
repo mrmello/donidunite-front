@@ -35,13 +35,15 @@ class Orders extends Component {
     return (
       <div className="orders">
         <div className="ui raised very padded text container segment">
+          <h2 className="ui header">Últimos pedidos</h2>
           <table className="ui pink striped table">
             <thead>
               <tr>
-                <th>Codigo</th>
-                <th>Nome do produto</th>
-                <th>Valor R$</th>
-                <th>Ativo?</th>
+                <th>Cliente</th>
+                <th>Produto</th>
+                <th>Quantidade</th>
+                <th>Telefone</th>
+                <th>Ações</th>
               </tr>
             </thead>
             <tbody>
