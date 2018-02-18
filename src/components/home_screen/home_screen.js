@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import './App.css';
+import './Home_screen.css';
 import Header from '../header/Header';
 import Orders from '../../containers/orders/Orders';
 
-export default class App extends Component {
+export default class Home_screen extends Component {
   render() {
     return (
-      <div className="App">
+      <div className="home_screen">
         <Header />
         <Orders />
       </div>

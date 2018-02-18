@@ -3,7 +3,7 @@ import { FETCH_SALES }        from './types';
 import { FETCH_SALES_ERROR }  from './types';
 
 export function fetchSales() {
-  const request = axios.get('http://localhost:3100/products');
+  const request = axios.get('http://localhost:3100/catalog/products');
 
   return dispatch => {
     request.then(response => {
