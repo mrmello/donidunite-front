@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import './Header.css';
 import Menu from './components/menu/Menu';
 import MenuMobile from './components/menu-mobile/MenuMobile';
