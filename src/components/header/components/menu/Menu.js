@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import './Menu.css';
 
 export default class Menu extends Component {
@@ -7,11 +7,11 @@ export default class Menu extends Component {
     return (
       <div className="menu">
         <div className="ui pink buttons">
-          <Link className="ui button" to="/home">Início</Link>
-          <button className="ui button">Catálogo</button>
-          <button className="ui button">Pedidos</button>
-          <Link className="ui button" to="/expenses">Despesas</Link>
-          <button className="ui button">Relatórios</button>
+          <NavLink exact={true} activeClassName="active" className="ui button" to="/">Início</NavLink>
+          <NavLink activeClassName="active" className="ui button" to="/products">Catálogo</NavLink>
+          <NavLink activeClassName="active" className="ui button" to="/orders">Pedidos</NavLink>
+          <NavLink activeClassName="active" className="ui button" to="/financial">Caixa</NavLink>
+          <NavLink activeClassName="active" className="ui button" to="/reports">Relatórios</NavLink>
         </div>
       </div>
     )

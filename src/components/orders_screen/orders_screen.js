@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
-import Orders from '../../containers/orders/Orders';
 import Header from '../header/Header';
 
-export default class Home extends Component {
+export default class Orders extends Component {
   render() {
     return (
-      <div className="home">
+      <div className="orders">
         <Header />
-        <Orders />
       </div>
     );
   }
