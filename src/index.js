@@ -7,22 +7,22 @@ import thunk from 'redux-thunk';
 import reducers from './reducers';
 import './index.css';
 import 'semantic-ui-css/semantic.min.css';
-import Home from './components/home_screen/home_screen';
-import Financial from './components/financial_screen/financial_screen';
-import Products from './components/products_screen/products_screen';
-import Orders from './components/orders_screen/orders_screen';
-import Reports from './components/reports_screen/reports_screen';
+import HomeScreen from './components/home_screen/home_screen';
+import FinancialScreen from './components/financial_screen/financial_screen';
+import ProductsScreen from './components/products_screen/products_screen';
+import OrdersScreen from './components/orders_screen/orders_screen';
+import ReportsScreen from './components/reports_screen/reports_screen';
 import registerServiceWorker from './registerServiceWorker';
 
 ReactDOM.render(
   <Provider store={createStore(reducers, applyMiddleware(thunk))}>
     <BrowserRouter>
       <div>
-        <Route exact path="/" component={Home} />
-        <Route path="/products" component={Products} />
-        <Route path="/orders" component={Orders} />
-        <Route path="/financial" component={Financial} />
-        <Route path="/reports" component={Reports} />
+        <Route exact path="/" component={HomeScreen} />
+        <Route path="/products" component={ProductsScreen} />
+        <Route path="/orders" component={OrdersScreen} />
+        <Route path="/financial" component={FinancialScreen} />
+        <Route path="/reports" component={ReportsScreen} />
     </div>
     </BrowserRouter>
   </Provider>
