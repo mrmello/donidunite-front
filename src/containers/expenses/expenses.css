@@ -1,0 +1,12 @@
+@media screen and (max-width: 499px) {
+  .expenses .ui.raised.segment {
+    top: 10vh;
+    min-width: 87vw;
+  }
+}
+@media screen and (min-width: 500px) {
+  .expenses .ui.raised.segment {
+    top: 20vh;
+    min-width: 87vw;
+  }
+}

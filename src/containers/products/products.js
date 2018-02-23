@@ -38,7 +38,6 @@ class Products extends Component {
           <table className="ui pink striped table">
             <thead>
               <tr>
-                <th>Cliente</th>
                 <th>Nome</th>
                 <th>Preço</th>
                 <th>Categoria</th>

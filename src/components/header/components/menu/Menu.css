@@ -6,3 +6,8 @@
   border-radius: 4px;
   z-index: 9
 }
+
+.ui.pink.buttons .button {
+    background-color: #fff;
+    color: #e03997;
+}
