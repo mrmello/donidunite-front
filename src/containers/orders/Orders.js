@@ -21,11 +21,12 @@ class Orders extends Component {
     }
     return this.props.sales.map((sale) => {
       return (
-        <tr key={sale.code}>
-          <td>{sale.code}</td>
-          <td>{sale.name}</td>
-          <td>{sale.value}</td>
-          <td>{sale.active}</td>
+        <tr key={sale._id}>
+          <td>{sale.customer.name}</td>
+          <td>{sale.product.name}</td>
+          <td>R$ {sale.totalValue.toFixed(2)}</td>
+          <td>(54) 99641 2801</td>
+          <td></td>
         </tr>
       )
     });
@@ -41,7 +42,7 @@ class Orders extends Component {
               <tr>
                 <th>Cliente</th>
                 <th>Produto</th>
-                <th>Quantidade</th>
+                <th>Valor</th>
                 <th>Telefone</th>
                 <th>Ações</th>
               </tr>

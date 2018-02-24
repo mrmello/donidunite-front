@@ -9,7 +9,7 @@ import {FETCH_SALES,
         FETCH_PRODUCTS_ERROR } from './types';
 
 export function fetchSales() {
-  const request = axios.get('http://localhost:3100/catalog/products');
+  const request = axios.get('http://localhost:3100/management/orders');
 
   return dispatch => {
     request.then(response => {
