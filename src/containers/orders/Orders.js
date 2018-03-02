@@ -10,7 +10,6 @@ class Orders extends Component {
     this.props.fetchSales();
   }
 
-
   renderList() {
     if(!this.props.sales.map) {
       return (
@@ -22,14 +21,26 @@ class Orders extends Component {
     return this.props.sales.map((sale) => {
       return (
         <tr key={sale._id}>
-          <td>{sale.customer.name}</td>
-          <td>{sale.product.name}</td>
+          <td>{sale.customer.name} {sale.customer.surname}</td>
+          <td>{this.renderProducts(sale)}</td>
           <td>R$ {sale.totalValue.toFixed(2)}</td>
           <td>(54) 99641 2801</td>
           <td></td>
         </tr>
       )
     });
+  }
+
+  renderProducts(sale) {
+    return sale.shoppingCart.map((item) => {
+      return (
+        <li className="cart-details">{item.product.name}
+          <ol>- Preço: R$ {item.product.price.toFixed(2)}</ol>
+          <ol>- Quantidade: {item.quantity} un.</ol>
+        </li>
+      )
+    })
+
   }
 
   render() {

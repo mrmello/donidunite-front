@@ -2,6 +2,7 @@
   .incomes .ui.raised.segment {
     top: 10vh;
     min-width: 87vw;
+    margin-top: 5vh;
   }
 }
 @media screen and (min-width: 500px) {

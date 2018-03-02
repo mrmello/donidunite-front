@@ -27,7 +27,7 @@ class Expenses extends Component {
           <td>{expense.category.name}</td>
           <td>{expense.payment}</td>
           <td>{expense.payee.name}</td>
-          <td>{expense.date}</td>
+          <td>{new Date(expense.date).toDateString()}</td>
         </tr>
       )
     });

@@ -27,7 +27,7 @@ class Incomes extends Component {
           <td>{income.category.name}</td>
           <td>{income.payment}</td>
           <td>{income.payee.name}</td>
-          <td>{income.date}</td>
+          <td>{new Date(income.date).toDateString()}</td>
         </tr>
       )
     });

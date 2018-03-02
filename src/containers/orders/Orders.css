@@ -10,3 +10,8 @@
     min-width: 87vw;
   }
 }
+
+.cart-details ol {
+  line-height: 6px;
+  font-style: italic;
+}
