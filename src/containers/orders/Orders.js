@@ -34,7 +34,7 @@ class Orders extends Component {
   renderProducts(sale) {
     return sale.shoppingCart.map((item) => {
       return (
-        <li className="cart-details">{item.product.name}
+        <li key={item.product._id} className="cart-details">{item.product.name}
           <ol>- Preço: R$ {item.product.price.toFixed(2)}</ol>
           <ol>- Quantidade: {item.quantity} un.</ol>
         </li>

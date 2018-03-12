@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import Orders from '../../containers/orders/Orders';
 import Header from '../header/Header';
+import Includer from '../includer/includer';
 
 export default class HomeScreen extends Component {
   render() {
     return (
       <div className="home">
         <Header />
-        <Orders />
+        <Includer />
       </div>
     );
   }

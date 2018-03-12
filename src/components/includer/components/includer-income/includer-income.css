@@ -1,0 +1,25 @@
+.includer .ui.icon.button, .ui.icon.buttons .button{
+  position: fixed;
+  right: 3vh;
+  bottom: 3vh;
+  border-radius: 100%;
+  background-color: #ea158d;
+  color: #fff;
+  height: 50px;
+  width: 50px;
+  z-index: 99;
+}
+
+label.includer-item {
+  margin: 0 1rem;
+  color: gray
+}
+
+label.includer-item:hover { 
+  color: #ea158d;
+  cursor: pointer;
+}
+
+.ui.vertically.divided.grid {
+    max-width: 10vw;
+}

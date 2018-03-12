@@ -9,7 +9,7 @@ import {FETCH_SALES,
         FETCH_PRODUCTS_ERROR } from './types';
 
 export function fetchSales() {
-  const request = axios.get('http://localhost:3100/management/orders');
+  const request = axios.get('https://donidunite-back.herokuapp.com/management/orders');
 
   return dispatch => {
     request.then(response => {
@@ -27,7 +27,7 @@ export function fetchSales() {
 }
 
 export function fetchProducts() {
-  const request = axios.get('http://localhost:3100/catalog/products');
+  const request = axios.get('https://donidunite-back.herokuapp.com/catalog/products');
 
   return dispatch => {
     request.then(response => {
@@ -45,7 +45,7 @@ export function fetchProducts() {
 }
 
 export function fetchExpenses() {
-  const request = axios.get('http://localhost:3100/management/expenses');
+  const request = axios.get('https://donidunite-back.herokuapp.com/management/expenses');
 
   return dispatch => {
     request.then(response => {
@@ -63,7 +63,7 @@ export function fetchExpenses() {
 }
 
 export function fetchIncomes() {
-  const request = axios.get('http://localhost:3100/management/incomes');
+  const request = axios.get('https://donidunite-back.herokuapp.com/management/incomes');
 
   return dispatch => {
     request.then(response => {
