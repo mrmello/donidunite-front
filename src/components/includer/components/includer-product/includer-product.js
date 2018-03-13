@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Header, Image, Modal, Form, Input, Radio, Select, TextArea, Checkbox } from 'semantic-ui-react'
+import { Button, Modal, Form, Input, Select, Checkbox } from 'semantic-ui-react'
 import './includer-product.css';
 
 const options = [
@@ -13,7 +13,6 @@ export default class IncluderProduct extends Component {
     this.props.closeIncluderProduct();
   }
   render() {
-    const { value } = this.state
     return (
       <div>
         <Modal dimmer='blurring' open={this.props.isOpen} onClose={this.close} closeIcon>
