@@ -2,3 +2,7 @@ button.ui.icon.button.product-row {
   height: max-content;
   margin-top: auto;
 }
+.hidden {
+  visibility: hidden;
+  position: absolute;
+}

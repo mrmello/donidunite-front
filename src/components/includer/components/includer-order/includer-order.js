@@ -5,7 +5,7 @@ import './includer-order.css';
 
 const options = [
   { key: 'm', text: 'Male', value: 'male' },
-  { key: 'f', text: 'Female', value: 'female' },
+  { key: 'f', text: 'Female', value: 'female' }
 ]
 
 export default class IncluderOrder extends Component {
@@ -16,10 +16,13 @@ export default class IncluderOrder extends Component {
     this.removeRow = this.removeRow.bind(this)
   }
   componentWillMount(){
+    
     this.setState({
       productRows: [{
         remove: false,
-        function: this.addRow
+        function: this.addRow,
+        index: 0,
+        visibility: 'visbile'
       }]
     })
   }
@@ -28,19 +31,25 @@ export default class IncluderOrder extends Component {
   }
   
   addRow(){
+    let lastIndex = this.state.productRows[this.state.productRows.length-1].index;
     this.setState(prevState => ({
       productRows: [...prevState.productRows, {
         remove: true,
-        function: this.removeRow
+        function: this.removeRow,
+        index: lastIndex + 1,
+        visibility: 'visbile'
       }]
     }))
   }
 
   removeRow(index){
-    let element = this.state.productRows[index]
-    this.setState(prevState => ({ 
-      productRows: prevState.productRows.filter(row => row !== element) 
-    }));
+    console.log(this.refs);
+    let objIndex = this.state.productRows.findIndex((row => row.index === index));
+    let newProductRows = this.state.productRows;
+    newProductRows[objIndex].visibility = 'hidden';
+    this.setState({
+      productRows: newProductRows
+    });
   }
 
   render() {
@@ -58,8 +67,8 @@ export default class IncluderOrder extends Component {
                 {
                   this.state.productRows.map((row, i) => {
                     return (
-                      <Form.Group key={i}>
-                        <ProductRow index={i} remove={row.remove} function={row.function}/>
+                      <Form.Group key={i} className={row.visibility} >
+                        <ProductRow index={row.index} ref={`productRow${row.index}`} remove={row.remove} function={row.function}/>
                       </Form.Group>
                     )
                   })

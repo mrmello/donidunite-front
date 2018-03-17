@@ -9,16 +9,16 @@ const options = [
 
 export default class ProductRow extends Component {
   
-  insertButtonAddRemove(){
-    console.log(this.props)
+  renderButtonAddRemove(){
     if(this.props.remove){
+      console.log(this.props.id)
       return (
-        <Button basic color='red' className='product-row' icon='trash outline' onClick={() => this.props.function(this.props.index)}/>
+        <Button basic color='red' className='button-add-remove' icon='trash outline' onClick={() => this.props.function(this.props.index)}/>
       )
     }
     else {
       return (
-        <Button basic color='green' className='product-row' icon='add' onClick={this.props.function}/>
+        <Button basic color='green' className='button-add-remove' icon='add' onClick={this.props.function}/>
       )
     }
   }
@@ -31,7 +31,7 @@ export default class ProductRow extends Component {
         <Form.Field control={Select} label='Recheio' options={options} placeholder='Recheio' width={6}/>
         <Form.Field control={Select} label='Adicional' options={options} placeholder='Adicional' width={6}/>
         <Form.Field control={Input} label='Quantidade' placeholder='Quantidade' width={5}/>
-        {this.insertButtonAddRemove()}
+        {this.renderButtonAddRemove()}
       </Form.Group>
     )
   }
