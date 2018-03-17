@@ -13,12 +13,12 @@ export default class ProductRow extends Component {
     if(this.props.remove){
       console.log(this.props.id)
       return (
-        <Button basic color='red' className='button-add-remove' icon='trash outline' onClick={() => this.props.function(this.props.index)}/>
+        <Button basic color='red' className='icon-button' icon='trash outline' onClick={() => this.props.function(this.props.index)}/>
       )
     }
     else {
       return (
-        <Button basic color='green' className='button-add-remove' icon='add' onClick={this.props.function}/>
+        <Button basic color='green' className='icon-button' icon='add' onClick={this.props.function}/>
       )
     }
   }

@@ -24,25 +24,25 @@ export default class Includer extends Component {
   
   handleChangeIncluderProduct() {
     this.setState({
-      includerProductIsOpen: !this.state.includerProductIsOpen,
+      includerProductIsOpen: !this.state.includerProductIsOpen
     });
   }
 
   handleChangeIncluderOrder() {
     this.setState({
-      includerOrderIsOpen: !this.state.includerOrderIsOpen,
+      includerOrderIsOpen: !this.state.includerOrderIsOpen
     });
   }
 
   handleChangeIncluderIncome() {
     this.setState({
-      includerIncomeIsOpen: !this.state.includerIncomeIsOpen,
+      includerIncomeIsOpen: !this.state.includerIncomeIsOpen
     });
   }
 
   handleChangeIncluderExpense() {
     this.setState({
-      includerExpenseIsOpen: !this.state.includerExpenseIsOpen,
+      includerExpenseIsOpen: !this.state.includerExpenseIsOpen
     });
   }
   render() {

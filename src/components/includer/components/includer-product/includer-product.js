@@ -15,7 +15,7 @@ export default class IncluderProduct extends Component {
   render() {
     return (
       <div>
-        <Modal dimmer='blurring' open={this.props.isOpen} onClose={this.close} closeIcon>
+        <Modal open={this.props.isOpen} onClose={this.close} closeIcon>
           <Modal.Header>Novo Produto</Modal.Header>
           <Modal.Content>
             <Form>
@@ -34,10 +34,8 @@ export default class IncluderProduct extends Component {
             </Form>
           </Modal.Content>
           <Modal.Actions>
-            <Button color='black' onClick={this.close}>
-              Nope
-            </Button>
-            <Button positive icon='checkmark' labelPosition='right' content="Yep, that's me" onClick={this.close} />
+            <Button color='black' onClick={this.close}>Cancelar</Button>
+            <Button positive icon='checkmark' labelPosition='right' content="Salvar Produto" onClick={this.close} />
           </Modal.Actions>
         </Modal>
       </div>

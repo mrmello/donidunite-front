@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Modal, Form, Input, Select, Checkbox } from 'semantic-ui-react'
+import { Button, Modal, Form, Input, Select } from 'semantic-ui-react'
 import ProductRow from './components/product-row/product-row'
 import './includer-order.css';
 
@@ -55,7 +55,7 @@ export default class IncluderOrder extends Component {
   render() {
     return (
       <div>
-        <Modal dimmer='blurring' size='large' open={this.props.isOpen} onClose={this.close} closeIcon>
+        <Modal size='large' open={this.props.isOpen} onClose={this.close} closeIcon>
           <Modal.Header>Novo Pedido</Modal.Header>
           <Modal.Content>
             <Form>
@@ -73,16 +73,11 @@ export default class IncluderOrder extends Component {
                     )
                   })
                 }
-              <Form.Group inline>
-                <Form.Field control={Checkbox} label='Ativo' />
-              </Form.Group>
             </Form>
           </Modal.Content>
           <Modal.Actions>
-            <Button color='black' onClick={this.close}>
-              Nope
-            </Button>
-            <Button positive icon='checkmark' labelPosition='right' content="Yep, that's me" onClick={this.close} />
+            <Button color='black' onClick={this.close}>Cancelar</Button>
+            <Button positive icon='checkmark' labelPosition='right' content="Yes, Salvar Pedido" onClick={this.close} />
           </Modal.Actions>
         </Modal>
       </div>

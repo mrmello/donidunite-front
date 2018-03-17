@@ -25,3 +25,16 @@ label.includer-item:hover {
 .ui.vertically.divided.grid {
     max-width: 10vw;
 }
+
+button.ui.icon.button.icon-button {
+  height: max-content;
+  margin-top: auto;
+}
+
+.ui.popup {
+  z-index: 9;
+}
+
+.ui.popup.popup-calendar {
+  z-index: 1900
+}
