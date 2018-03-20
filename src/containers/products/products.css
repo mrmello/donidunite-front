@@ -6,7 +6,7 @@
 }
 @media screen and (min-width: 500px) {
   .products .ui.raised.segment {
-    top: 20vh;
+    top: 2vh;
     min-width: 87vw;
   }
 }

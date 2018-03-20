@@ -6,7 +6,7 @@ import MenuMobile from './components/menu-mobile/MenuMobile';
 export default class Header extends Component {
   render() {
     return (
-      <div className="header">
+      <div className="header_component">
         <Menu />
         <MenuMobile />
       </div>

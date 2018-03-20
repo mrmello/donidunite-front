@@ -13,4 +13,11 @@
   .menu {
     display: block;
   }
+
+  .header_component {
+    max-width: 15em;
+    float: left;
+    margin-top: 2vh
+  }
 }
+
