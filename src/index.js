@@ -12,18 +12,20 @@ import FinancialScreen from './components/financial_screen/financial_screen';
 import ProductsScreen from './components/products_screen/products_screen';
 import OrdersScreen from './components/orders_screen/orders_screen';
 import ReportsScreen from './components/reports_screen/reports_screen';
+import Header from './components/header/Header';
 import registerServiceWorker from './registerServiceWorker';
 
 ReactDOM.render(
   <Provider store={createStore(reducers, applyMiddleware(thunk))}>
     <BrowserRouter>
       <div>
+        <Header />
         <Route exact path="/" component={HomeScreen} />
         <Route path="/products" component={ProductsScreen} />
         <Route path="/orders" component={OrdersScreen} />
         <Route path="/financial" component={FinancialScreen} />
         <Route path="/reports" component={ReportsScreen} />
-    </div>
+      </div>
     </BrowserRouter>
   </Provider>
   , document.getElementById('root'));

@@ -1,18 +1,33 @@
 import React, { Component } from 'react';
+import { Menu } from 'semantic-ui-react'
 import { NavLink } from 'react-router-dom';
-import './Menu.css';
 
-export default class Menu extends Component {
+export default class MenuClass extends Component {
+  state = { activeItem: 'Início' }
+
+  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
+
   render() {
+    const { activeItem } = this.state
     return (
-      <div className="menu">
-        <div className="ui pink buttons">
-          <NavLink exact={true} activeClassName="active" className="ui button" to="/">Início</NavLink>
-          <NavLink activeClassName="active" className="ui button" to="/products">Catálogo</NavLink>
-          <NavLink activeClassName="active" className="ui button" to="/orders">Pedidos</NavLink>
-          <NavLink activeClassName="active" className="ui button" to="/financial">Caixa</NavLink>
-          <NavLink activeClassName="active" className="ui button" to="/reports">Relatórios</NavLink>
-        </div>
+      <div>
+        <Menu vertical tabular color='pink'>
+          <NavLink exact={true} to="/">
+            <Menu.Item name='Início' active={activeItem === 'Início'} onClick={this.handleItemClick}/>
+          </NavLink>
+          <NavLink to="/products">
+            <Menu.Item name='Catálogo' active={activeItem === 'Catálogo'} onClick={this.handleItemClick}/>
+          </NavLink>
+          <NavLink to="/orders">
+            <Menu.Item name='Pedidos' active={activeItem === 'Pedidos'} onClick={this.handleItemClick}/>
+          </NavLink>
+          <NavLink to="/financial">
+            <Menu.Item name='Caixa' active={activeItem === 'Caixa'} onClick={this.handleItemClick}/>
+          </NavLink>
+          <NavLink to="/reports">
+            <Menu.Item name='Relatórios' active={activeItem === 'Relatórios'} onClick={this.handleItemClick}/>
+          </NavLink>
+        </Menu>
       </div>
     )
   }
