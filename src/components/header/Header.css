@@ -17,7 +17,16 @@
   .header_component {
     max-width: 15em;
     float: left;
-    margin-top: 2vh
+    height: 100%
   }
 }
 
+a.item {
+  color: white !important;
+  font-weight: 700 !important;
+}
+
+.ui.pink.vertical.tabular.menu {
+  height: 100%;
+  background-color: #ea158d;
+}
