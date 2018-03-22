@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import './Header.css';
+import './navigation_menu.css';
 import Menu from './components/menu/Menu';
 import MenuMobile from './components/menu-mobile/MenuMobile';
 
-export default class Header extends Component {
+export default class NavigationMenu extends Component {
   render() {
     return (
-      <div className="header_component">
+      <div className="navigation_menu">
         <Menu />
         <MenuMobile />
       </div>

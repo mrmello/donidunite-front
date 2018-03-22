@@ -1,0 +1,19 @@
+.navigation_menu {
+  width: 13vw;
+  float: left;
+  height: 100%;
+  position: fixed;
+  background-color: #ea158d;
+}
+
+a.item {
+  color: white !important;
+  font-weight: 700 !important;
+}
+
+.ui.pink.vertical.tabular.menu {
+  height: 100%;
+  background-color: #ea158d;
+  max-width: 100%;
+  border-right: none;
+}

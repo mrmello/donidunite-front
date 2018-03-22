@@ -4,3 +4,11 @@ body {
   font-family: sans-serif;
   min-height: 100%; 
 }
+.view-content{
+  width: 84vw;
+  margin-left: 14vw;
+}
+
+.reports, .products, .orders, .financial{
+  max-width: 100%;
+}

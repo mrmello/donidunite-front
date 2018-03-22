@@ -7,7 +7,7 @@
 @media screen and (min-width: 500px) {
   .orders .ui.raised.segment {
     top: 2vh;
-    min-width: 87vw;
+    min-width: 100%;
   }
 }
 
