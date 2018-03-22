@@ -4,30 +4,16 @@ import { NavLink } from 'react-router-dom';
 import './Menu.css';
 
 export default class MenuClass extends Component {
-  state = { activeItem: 'Início' }
-
-  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
-
+  
   render() {
-    const { activeItem } = this.state
     return (
       <div>
         <Menu vertical tabular color='pink'>
-          <NavLink exact={true} to="/">
-            <Menu.Item name='Início' active={activeItem === 'Início'} onClick={this.handleItemClick}/>
-          </NavLink>
-          <NavLink to="/products">
-            <Menu.Item name='Catálogo' active={activeItem === 'Catálogo'} onClick={this.handleItemClick}/>
-          </NavLink>
-          <NavLink to="/orders">
-            <Menu.Item name='Pedidos' active={activeItem === 'Pedidos'} onClick={this.handleItemClick}/>
-          </NavLink>
-          <NavLink to="/financial">
-            <Menu.Item name='Caixa' active={activeItem === 'Caixa'} onClick={this.handleItemClick}/>
-          </NavLink>
-          <NavLink to="/reports">
-            <Menu.Item name='Relatórios' active={activeItem === 'Relatórios'} onClick={this.handleItemClick}/>
-          </NavLink>
+          <Menu.Item name='Início'      as={NavLink} to="/" exact={true} />
+          <Menu.Item name='Catálogo'    as={NavLink} to="/products"/>
+          <Menu.Item name='Pedidos'     as={NavLink} to="/orders"/>
+          <Menu.Item name='Caixa'       as={NavLink} to="/financial"/>
+          <Menu.Item name='Relatórios'  as={NavLink} to="/reports"/>
         </Menu>
       </div>
     )

@@ -2,14 +2,29 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchProducts } from '../../actions/index';
 import { bindActionCreators } from 'redux';
+import { Loader } from 'semantic-ui-react'
 import './products.css';
 
 class Products extends Component {
+
+  constructor(){
+    super();
+    this.state = {
+      loading: true
+    };
+
+  }
 
   componentWillMount() {
     this.props.fetchProducts();
   }
 
+  componentDidMount(){
+    console.log("mouted")
+    this.setState = {
+      loading: false
+    };
+  }
 
   renderList() {
     if(!this.props.products.map) {
@@ -21,7 +36,7 @@ class Products extends Component {
     }
     return this.props.products.map((product) => {
       return (
-        <tr key={product.id}>
+        <tr key={product._id}>
           <td>{product.name}</td>
           <td>{product.price}</td>
           <td>{product.category.name}</td>
@@ -45,6 +60,7 @@ class Products extends Component {
             </thead>
             <tbody>
               {this.renderList()}
+              <tr><td colSpan="3"><Loader active={this.state.loading} inline='centered' />{this.state.loading}</td></tr>
             </tbody>
           </table>
         </div>
