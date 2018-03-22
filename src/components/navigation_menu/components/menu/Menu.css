@@ -6,6 +6,10 @@
   background-color: #ea158d;
 }
 
+.ui.vertical.tabular.menu .active.item {
+  margin: 0;
+}
+
 a.item {
   color: white !important;
   font-weight: 700 !important;
@@ -14,6 +18,6 @@ a.item {
 .ui.pink.vertical.tabular.menu {
   height: 100%;
   background-color: #ea158d;
-  max-width: 100%;
+  width: 100%;
   border-right: none;
 }
