@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchProducts } from '../../actions/index';
 import { bindActionCreators } from 'redux';
-import { Loader } from 'semantic-ui-react'
+import { Loader, Card, Icon } from 'semantic-ui-react'
 import './products.css';
 
 class Products extends Component {
@@ -12,35 +12,36 @@ class Products extends Component {
     this.state = {
       loading: true
     };
-
   }
 
   componentWillMount() {
     this.props.fetchProducts();
-  }
+  }  
 
-  componentDidMount(){
-    console.log("mouted")
-    this.setState = {
-      loading: false
-    };
+  handleHover() {
+    console.log('hover');
   }
-
   renderList() {
+    const extra = (
+      <a>
+        <Icon name='plus' />
+        Detalhes
+      </a>
+    )
     if(!this.props.products.map) {
       return (
-        <tr>
-          <td>Não foi possível recupurar as vendas, tente novamente mais tarde</td>
-        </tr>
-      );
+        "Não foi possível recupurar as vendas, tente novamente mais tarde"
+      )
     }
     return this.props.products.map((product) => {
       return (
-        <tr key={product._id}>
-          <td>{product.name}</td>
-          <td>{product.price}</td>
-          <td>{product.category.name}</td>
-        </tr>
+        <Card 
+          image={require('../../assets/donidunite1.png')}
+          header={product.name}
+          meta={product.category.name}
+          description={`R$ ${product.price.toFixed(2)}`}
+          extra={extra} raised
+        />
       )
     });
   }
@@ -50,19 +51,10 @@ class Products extends Component {
       <div className="products">
         <div className="ui raised very padded text container segment">
           <h2 className="ui header">Produtos</h2>
-          <table className="ui pink striped table">
-            <thead>
-              <tr>
-                <th>Nome</th>
-                <th>Preço</th>
-                <th>Categoria</th>
-              </tr>
-            </thead>
-            <tbody>
-              {this.renderList()}
-              <tr><td colSpan="3"><Loader active={this.state.loading} inline='centered' />{this.state.loading}</td></tr>
-            </tbody>
-          </table>
+          <hr />
+          <Card.Group itemsPerRow={6}>
+            {this.renderList()}
+          </Card.Group>
         </div>
       </div>
     )

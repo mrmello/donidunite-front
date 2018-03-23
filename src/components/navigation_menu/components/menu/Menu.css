@@ -3,7 +3,7 @@
   float: left;
   height: 100%;
   position: fixed;
-  background-color: #ea158d;
+  background-color: #ea158d85;
 }
 
 .ui.vertical.tabular.menu .active.item {
@@ -15,9 +15,8 @@ a.item {
   font-weight: 700 !important;
 }
 
-.ui.pink.vertical.tabular.menu {
+.navigation_menu .ui.pink.vertical.tabular.menu {
   height: 100%;
-  background-color: #ea158d;
   width: 100%;
   border-right: none;
 }
