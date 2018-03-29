@@ -1,12 +1,5 @@
-import axios                  from 'axios';
-import {FETCH_SALES,
-        FETCH_SALES_ERROR,
-        FETCH_INCOMES,
-        FETCH_INCOMES_ERROR,
-        FETCH_EXPENSES,
-        FETCH_EXPENSES_ERROR,
-        FETCH_PRODUCTS,
-        FETCH_PRODUCTS_ERROR } from './types';
+import axios from 'axios';
+import types from './types';
 
 export function fetchSales() {
   const request = axios.get('https://donidunite-back.herokuapp.com/management/orders');
@@ -14,12 +7,12 @@ export function fetchSales() {
   return dispatch => {
     request.then(response => {
       dispatch({
-        type: FETCH_SALES,
+        type: types.FETCH_SALES,
         payload: response.data
       });
     }).catch(err => {
       dispatch({
-        type: FETCH_SALES_ERROR,
+        type: types.FETCH_SALES_ERROR,
         payload: err
       });
     })
@@ -32,12 +25,12 @@ export function fetchProducts() {
   return dispatch => {
     request.then(response => {
       dispatch({
-        type: FETCH_PRODUCTS,
+        type: types.FETCH_PRODUCTS,
         payload: response.data
       });
     }).catch(err => {
       dispatch({
-        type: FETCH_PRODUCTS_ERROR,
+        type: types.FETCH_PRODUCTS_ERROR,
         payload: err
       });
     })
@@ -50,12 +43,12 @@ export function fetchExpenses() {
   return dispatch => {
     request.then(response => {
       dispatch({
-        type: FETCH_EXPENSES,
+        type: types.FETCH_EXPENSES,
         payload: response.data
       });
     }).catch(err => {
       dispatch({
-        type: FETCH_EXPENSES_ERROR,
+        type: types.FETCH_EXPENSES_ERROR,
         payload: err
       });
     })
@@ -68,12 +61,30 @@ export function fetchIncomes() {
   return dispatch => {
     request.then(response => {
       dispatch({
-        type: FETCH_INCOMES,
+        type: types.FETCH_INCOMES,
         payload: response.data
       });
     }).catch(err => {
       dispatch({
-        type: FETCH_INCOMES_ERROR,
+        type: types.FETCH_INCOMES_ERROR,
+        payload: err
+      });
+    })
+  };
+}
+
+export function fetchCategories(type) {
+  const request = axios.get(`https://donidunite-back.herokuapp.com/category/bytype/${type}`);
+
+  return dispatch => {
+    request.then(response => {
+      dispatch({
+        type: types.FETCH_CATEGORIES,
+        payload: response.data
+      });
+    }).catch(err => {
+      dispatch({
+        type: types.FETCH_CATEGORIES_ERROR,
         payload: err
       });
     })

@@ -7,20 +7,10 @@ import './products.css';
 
 class Products extends Component {
 
-  constructor(){
-    super();
-    this.state = {
-      loading: true
-    };
-  }
-
   componentWillMount() {
     this.props.fetchProducts();
   }  
 
-  handleHover() {
-    console.log('hover');
-  }
   renderList() {
     const extra = (
       <a>

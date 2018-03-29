@@ -6,7 +6,6 @@ export default function(state = [], action) {
   case FETCH_INCOMES:
     return action.payload;
   case FETCH_INCOMES_ERROR:
-    console.log(action.payload);
     return action.payload;
   default:
     return state;
