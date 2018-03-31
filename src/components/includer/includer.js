@@ -1,9 +1,9 @@
 import React, { Component }     from 'react';
 import { Button, Popup, Grid }  from 'semantic-ui-react'
-import IncluderProduct          from '../../containers/includer-product/includer-product'
-import IncluderOrder            from '../../containers/includer-order/includer-order'
-import IncluderIncome           from '../../containers/includer-income/includer-income'
-import IncluderExpense          from '../../containers/includer-expense/includer-expense'
+import IncluderProduct          from './components/includer-product/includer-product'
+import IncluderOrder            from './components/includer-order/includer-order'
+import IncluderIncome           from './components/includer-income/includer-income'
+import IncluderExpense          from './components/includer-expense/includer-expense'
 import './includer.css';
 
 export default class Includer extends Component {

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchProducts } from '../../actions/index';
 import { bindActionCreators } from 'redux';
-import { Loader, Card, Icon } from 'semantic-ui-react'
+import { Card, Icon } from 'semantic-ui-react'
 import './products.css';
 
 class Products extends Component {
