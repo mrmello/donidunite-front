@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchSales } from '../../actions/index';
+import { fetchOrders } from './ordersActions';
 import { bindActionCreators } from 'redux';
-import './Orders.css';
+import './orders.css';
 
 class Orders extends Component {
 
   componentWillMount() {
-    this.props.fetchSales();
+    this.props.fetchOrders();
   }
 
   renderList() {
@@ -75,7 +75,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ fetchSales: fetchSales}, dispatch);
+  return bindActionCreators({ fetchOrders: fetchOrders}, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Orders);

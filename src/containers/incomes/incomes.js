@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchIncomes } from '../../actions/index';
+import { fetchIncomes } from './incomesActions';
 import { bindActionCreators } from 'redux';
 import './incomes.css';
 
@@ -26,7 +26,7 @@ class Incomes extends Component {
           <td>R$ {income.value.toFixed(2)}</td>
           <td>{income.category.name}</td>
           <td>{income.payment}</td>
-          <td>{income.payee.name}</td>
+          <td>{income.payee}</td>
           <td>{new Date(income.date).toDateString()}</td>
         </tr>
       )

@@ -3,14 +3,14 @@ import SalesReducer from '../containers/orders/ordersReducer';
 import ProductsReducer from '../containers/products/productsReducer';
 import ExpensesReducer from '../containers/expenses/expensesReducer';
 import IncomesReducer from '../containers/incomes/incomesReducer';
-import CategoriesReducer from '../containers/category-selector/categoriesReducer';
+import CategorySelectorReducer from '../containers/categorySelector/categorySelectorReducer';
 
-const rootReducer = combineReducers({ //creates application state
+const rootReducer = combineReducers({
   sales: SalesReducer,
   products: ProductsReducer,
   expenses: ExpensesReducer,
   incomes: IncomesReducer,
-  categories: CategoriesReducer,
+  categories: CategorySelectorReducer,
 });
 
 export default rootReducer;

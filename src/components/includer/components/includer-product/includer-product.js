@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Button, Modal, Form, Input, Checkbox } from 'semantic-ui-react'
 import './includer-product.css';
-import CategorySelector from '../../../../containers/category-selector/category-selector'
+import CategorySelector from '../../../../containers/categorySelector/categorySelector'
 
 export default class IncluderProduct extends Component {
 

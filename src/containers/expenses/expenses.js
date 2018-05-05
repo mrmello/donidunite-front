@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchExpenses } from '../../actions/index';
+import { fetchExpenses } from './expensesActions';
 import { bindActionCreators } from 'redux';
 import './expenses.css';
 
@@ -26,7 +26,7 @@ class Expenses extends Component {
           <td>R$ {expense.value.toFixed(2)}</td>
           <td>{expense.category.name}</td>
           <td>{expense.payment}</td>
-          <td>{expense.payee.name}</td>
+          <td>{expense.payee}</td>
           <td>{new Date(expense.date).toDateString()}</td>
         </tr>
       )
