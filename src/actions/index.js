@@ -19,24 +19,6 @@ export function fetchSales() {
   };
 }
 
-export function fetchProducts() {
-  const request = axios.get('https://donidunite-back.herokuapp.com/catalog/products');
-
-  return dispatch => {
-    request.then(response => {
-      dispatch({
-        type: types.FETCH_PRODUCTS,
-        payload: response.data
-      });
-    }).catch(err => {
-      dispatch({
-        type: types.FETCH_PRODUCTS_ERROR,
-        payload: err
-      });
-    })
-  };
-}
-
 export function fetchExpenses() {
   const request = axios.get('https://donidunite-back.herokuapp.com/management/expenses');
 

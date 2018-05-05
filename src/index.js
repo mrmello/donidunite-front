@@ -2,9 +2,6 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { BrowserRouter, Route } from 'react-router-dom';
 import ReactDOM from 'react-dom';
-import { createStore, applyMiddleware } from 'redux';
-import thunk from 'redux-thunk';
-import reducers from './reducers';
 import './index.css';
 import 'semantic-ui-css/semantic.min.css';
 import HomeScreen from './components/home_screen/home_screen';
@@ -14,9 +11,10 @@ import OrdersScreen from './components/orders_screen/orders_screen';
 import ReportsScreen from './components/reports_screen/reports_screen';
 import NavigationMenu from './components/navigation_menu/navigation_menu';
 import registerServiceWorker from './registerServiceWorker';
+import Store from './store'
 
 ReactDOM.render(
-  <Provider store={createStore(reducers, applyMiddleware(thunk))}>
+  <Provider store={Store}>
     <BrowserRouter>
       <div>
         <NavigationMenu />

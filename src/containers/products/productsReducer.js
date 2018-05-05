@@ -1,12 +1,12 @@
-import {  FETCH_PRODUCTS,
-          FETCH_PRODUCTS_ERROR }  from '../../actions/types';
+import {  FETCH_PRODUCTS_SUCCEED,
+          FETCH_PRODUCTS_FAILED }  from '../../actions/types';
 
 export default function(state = [], action) {
   switch(action.type){
-  case FETCH_PRODUCTS:
-    return action.payload;
-  case FETCH_PRODUCTS_ERROR:
-    return action.payload;
+  case FETCH_PRODUCTS_SUCCEED:
+    return action.products;
+  case FETCH_PRODUCTS_FAILED:
+    return action.message;
   default:
     return state;
   }

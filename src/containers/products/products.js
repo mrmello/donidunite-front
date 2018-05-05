@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchProducts } from '../../actions/index';
+import { fetchProducts } from './productsActions';
 import { bindActionCreators } from 'redux';
 import { Card, Icon } from 'semantic-ui-react'
 import './products.css';
@@ -27,6 +27,7 @@ class Products extends Component {
       return (
         <Card 
           image={require('../../assets/donidunite1.png')}
+          key={product._id}
           header={product.name}
           meta={product.category.name}
           description={`R$ ${product.price.toFixed(2)}`}

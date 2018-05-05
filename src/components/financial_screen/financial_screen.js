@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Expenses from '../../containers/expenses/expenses';
 import Incomes from '../../containers/incomes/incomes';
 import Includer from '../includer/includer';
