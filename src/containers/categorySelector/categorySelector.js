@@ -2,13 +2,14 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Form, Select } from 'semantic-ui-react'
-import { fetchCategoriesByType } from './categorySelectorActions';
+import { fetchCategories } from './categorySelectorActions';
 import './categorySelector.css';
 
 class CategorySelector extends Component {
   
   componentWillMount() {
-    this.props.fetchCategoriesByType(this.props.type);
+    console.log(this.props.type)
+    this.props.fetchCategories();
   }
 
   renderOptions(){
@@ -26,20 +27,21 @@ class CategorySelector extends Component {
 
   render() {    
     return (
-      <Form.Field control={Select} label='Categoria' options={this.renderOptions()} placeholder='Categoria' width={5}/>
+      <Form.Field control={Select} label={this.props.label} options={this.renderOptions()} placeholder={this.props.placeholder} width={5}/>
     )
   }
 }
 
 
 function mapStateToProps(state) {
+  console.log(state)
   return {
     categories: state.categories
   };
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ fetchCategoriesByType: fetchCategoriesByType}, dispatch);
+  return bindActionCreators({ fetchCategories: fetchCategories}, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(CategorySelector);

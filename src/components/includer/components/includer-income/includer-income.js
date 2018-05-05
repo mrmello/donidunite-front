@@ -1,12 +1,8 @@
 import React, { Component } from 'react';
-import { Button, Modal, Form, Input, Select, Popup } from 'semantic-ui-react'
+import { Button, Modal, Form, Input, Popup } from 'semantic-ui-react'
 import Calendar from 'react-calendar'
 import moment from 'moment';
-
-const options = [
-  { key: 'm', text: 'Male', value: 'male' },
-  { key: 'f', text: 'Female', value: 'female' },
-]
+import CategorySelector from '../../../../containers/categorySelector/categorySelector'
 
 export default class IncluderIncome extends Component {
   constructor(){
@@ -37,10 +33,10 @@ export default class IncluderIncome extends Component {
               <Form.Group>
                 <Form.Field control={Input} label='Descrição' placeholder='Descrição' width={6}/>
                 <Form.Field control={Input} label='Valor' placeholder='Valor' width={4}/>
-                <Form.Field control={Select} label='Categoria' options={options} placeholder='Categoria' width={5}/>
+                <CategorySelector type="income" label='Categoria' placeholder='Categoria'/>
               </Form.Group>
               <Form.Group>
-                <Form.Field control={Select} label='Tipo de Pagamento' options={options} placeholder='Tipo de Pagamento' width={5}/>
+                <CategorySelector type="payment" label='Tipo de Pagamento' placeholder='Tipo de Pagamento'/>
                 <Form.Field control={Input} label='Responsável' placeholder='Responsável' width={6}/>
                 <Form.Field control={Input} label='Data' value={readableDate} width={6}/>
                 <Popup className='popup-calendar' trigger={<Button className='icon-button' basic color='blue' icon='calendar' />} position='right center' flowing hoverable >

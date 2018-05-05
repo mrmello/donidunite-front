@@ -1,18 +1,18 @@
-import { call, put, takeLatest } from 'redux-saga/effects'
+import { call, put, takeEvery } from 'redux-saga/effects'
 import types from '../../actions/types'
 import Api from '../../api'
 
-function* fetchCategoriesByType(action) {
+function* fetchCategories(action) {
    try {
-      const response = yield call(Api.fetchCategoriesByType, action.payload);
-      yield put({type: types.FETCH_CATEGORIES_BY_TYPE_SUCCEED, categories: response.data});
+      const response = yield call(Api.fetchCategories);
+      yield put({type: types.FETCH_CATEGORIES_SUCCEED, categories: response.data});
    } catch (e) {
-      yield put({type: types.FETCH_CATEGORIES_BY_TYPE_FAILED, message: e.message});
+      yield put({type: types.FETCH_CATEGORIES_FAILED, message: e.message});
    }
 }
 
 function* watcherCategorySelectorSaga() {
-  yield takeLatest(types.FETCH_CATEGORIES_BY_TYPE_REQUESTED, fetchCategoriesByType);
+  yield takeEvery(types.FETCH_CATEGORIES_REQUESTED, fetchCategories);
 }
 
 export default watcherCategorySelectorSaga;

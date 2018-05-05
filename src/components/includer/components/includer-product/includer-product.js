@@ -18,7 +18,7 @@ export default class IncluderProduct extends Component {
               <Form.Group>
                 <Form.Field control={Input} label='Nome' placeholder='Nome' width={6}/>
                 <Form.Field control={Input} label='Preço' placeholder='Preço' width={4}/>
-                <CategorySelector type="product"/>
+                <CategorySelector type="product" label='Categoria' placeholder='Categoria'/>
               </Form.Group>
               <Form.Group>
                 <Checkbox label='Ativo' defaultChecked toggle />

@@ -1,11 +1,11 @@
-import {  FETCH_CATEGORIES_BY_TYPE_SUCCEED,  
-          FETCH_CATEGORIES_BY_TYPE_FAILED }  from '../../actions/types';
+import {  FETCH_CATEGORIES_SUCCEED,  
+          FETCH_CATEGORIES_FAILED }  from '../../actions/types';
 
 export default function(state = [], action) {
   switch(action.type){
-  case FETCH_CATEGORIES_BY_TYPE_SUCCEED:
+  case FETCH_CATEGORIES_SUCCEED:
     return action.categories;
-  case FETCH_CATEGORIES_BY_TYPE_FAILED:
+  case FETCH_CATEGORIES_FAILED:
     return action.message;
   default:
     return state;
