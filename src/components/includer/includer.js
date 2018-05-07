@@ -1,12 +1,19 @@
-import React, { Component }     from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import { Button, Popup, Grid }  from 'semantic-ui-react'
+import { fetchCategories } from '../../containers/categorySelector/categorySelectorActions';
 import IncluderProduct          from './components/includer-product/includer-product'
 import IncluderOrder            from './components/includer-order/includer-order'
 import IncluderIncome           from './components/includer-income/includer-income'
 import IncluderExpense          from './components/includer-expense/includer-expense'
 import './includer.css';
 
-export default class Includer extends Component {
+export class Includer extends Component {
+
+  componentWillMount(){
+    this.props.fetchCategories();
+  }
 
   constructor() {
     super();
@@ -77,3 +84,9 @@ export default class Includer extends Component {
     )
   }
 }
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ fetchCategories: fetchCategories}, dispatch);
+}
+
+export default connect(null, mapDispatchToProps)(Includer);

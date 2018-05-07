@@ -43,7 +43,6 @@ export default class IncluderOrder extends Component {
   }
 
   removeRow(index){
-    console.log(this.refs);
     let objIndex = this.state.productRows.findIndex((row => row.index === index));
     let newProductRows = this.state.productRows;
     newProductRows[objIndex].visibility = 'hidden';

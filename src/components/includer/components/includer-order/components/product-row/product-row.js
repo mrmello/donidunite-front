@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Button, Form, Input, Select } from 'semantic-ui-react'
 import './product-row.css';
+import CategorySelector from '../../../../../../containers/categorySelector/categorySelector'
 
 const options = [
   { key: 'm', text: 'Male', value: 'male' },
@@ -27,9 +28,9 @@ export default class ProductRow extends Component {
     return (
       <Form.Group>
         <Form.Field control={Select} label='Nome do Produto' options={options} placeholder='Nome do Produto' width={6}/>
-        <Form.Field control={Select} label='Tamanho' options={options} placeholder='Tamanho' width={5}/>
-        <Form.Field control={Select} label='Recheio' options={options} placeholder='Recheio' width={6}/>
-        <Form.Field control={Select} label='Adicional' options={options} placeholder='Adicional' width={6}/>
+        <CategorySelector type="size" label='Tamanho' placeholder='Tamanho'/>
+        <CategorySelector type="dressing" label='Recheio' placeholder='Recheio'/>
+        <CategorySelector type="additional" label='Adicional' placeholder='Adicional'/>
         <Form.Field control={Input} label='Quantidade' placeholder='Quantidade' width={5}/>
         {this.renderButtonAddRemove()}
       </Form.Group>
