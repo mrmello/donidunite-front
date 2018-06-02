@@ -1,7 +1,9 @@
 module.exports = {
-    PRODUCTS            :   '/catalog/products',
-    CATEGORIES          :   '/category/list/',
-    INCOMES             :   '/management/incomes',
-    EXPENSES            :   '/management/expenses',
-    ORDERS              :   '/management/orders',
+    PRODUCTS                :   '/catalog/products',
+    CATEGORIES              :   '/category/list/',
+    CATEGORY_CREATE         :   '/category/create/',
+    INCOMES                 :   '/management/incomes',
+    EXPENSES                :   '/management/expenses',
+    INCOME_SAVE             :   '/management/income/create',
+    ORDERS                  :   '/management/orders',
 }

@@ -18,8 +18,8 @@ class CategorySelector extends Component {
     const options = []
     for(let category of this.props.categories.filter(this.filterCategory)) {
       let cat = {
-        key: category._id, 
-        text: category.name, 
+        key: category._id,
+        text: category.name,
         value: category.name
       }
       options.push(cat);
@@ -27,7 +27,7 @@ class CategorySelector extends Component {
     return options;
   }
 
-  render() {    
+  render() {
     return (
       <Form.Field control={Select} label={this.props.label} options={this.renderOptions()} placeholder={this.props.placeholder} width={5}/>
     )

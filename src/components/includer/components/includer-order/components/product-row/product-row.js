@@ -12,7 +12,6 @@ export default class ProductRow extends Component {
   
   renderButtonAddRemove(){
     if(this.props.remove){
-      console.log(this.props.id)
       return (
         <Button basic color='red' className='icon-button' icon='trash outline' onClick={() => this.props.function(this.props.index)}/>
       )

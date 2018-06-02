@@ -2,11 +2,20 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Button, Popup, Grid }  from 'semantic-ui-react'
-import { fetchCategories } from '../../containers/categorySelector/categorySelectorActions';
+import { saveIncome } from '../../containers/incomes/incomesActions'
+import {
+  toggleCategoryIncluder,
+  toggleExpenseIncluder,
+  toggleIncomeIncluder,
+  toggleProductIncluder
+} from './includerActions'
+import { fetchCategories, saveCategory } from '../../containers/categorySelector/categorySelectorActions';
+import Store from '../../store'
 import IncluderProduct          from './components/includer-product/includer-product'
 import IncluderOrder            from './components/includer-order/includer-order'
 import IncluderIncome           from './components/includer-income/includer-income'
 import IncluderExpense          from './components/includer-expense/includer-expense'
+import IncluderCategory          from './components/includer-category/includer-category'
 import './includer.css';
 
 export class Includer extends Component {
@@ -15,43 +24,42 @@ export class Includer extends Component {
     this.props.fetchCategories();
   }
 
-  constructor() {
-    super();
-    this.state = {
-        includerProductIsOpen: false,
-        includerOrderIsOpen: false,
-        includerIncomeIsOpen: false,
-        includerExpenseIsOpen: false,
-    };
+  constructor(props) {
+    super()
     this.handleChangeIncluderProduct = this.handleChangeIncluderProduct.bind(this)
     this.handleChangeIncluderOrder = this.handleChangeIncluderOrder.bind(this)
     this.handleChangeIncluderIncome = this.handleChangeIncluderIncome.bind(this)
     this.handleChangeIncluderExpense = this.handleChangeIncluderExpense.bind(this)
+    this.handleChangeIncluderCategory = this.handleChangeIncluderCategory.bind(this)
   }
-  
+
   handleChangeIncluderProduct() {
-    this.setState({
-      includerProductIsOpen: !this.state.includerProductIsOpen
-    });
+    Store.dispatch(toggleProductIncluder())
   }
 
   handleChangeIncluderOrder() {
-    this.setState({
-      includerOrderIsOpen: !this.state.includerOrderIsOpen
-    });
   }
 
   handleChangeIncluderIncome() {
-    this.setState({
-      includerIncomeIsOpen: !this.state.includerIncomeIsOpen
-    });
+    Store.dispatch(toggleIncomeIncluder())
   }
 
   handleChangeIncluderExpense() {
-    this.setState({
-      includerExpenseIsOpen: !this.state.includerExpenseIsOpen
-    });
+    Store.dispatch(toggleExpenseIncluder())
   }
+
+  handleChangeIncluderCategory() {
+    Store.dispatch(toggleCategoryIncluder())
+  }
+
+  saveIncome(formIncome) {
+    Store.dispatch(saveIncome(formIncome));
+  }
+
+  saveCategory(formCategory) {
+    Store.dispatch(saveCategory(formCategory));
+  }
+
   render() {
     return (
       <div className="includer">
@@ -61,7 +69,7 @@ export class Includer extends Component {
           flowing
           hoverable
         >
-          <Grid divided='vertically'>
+          <Grid divided='vertically' className="balon-box">
             <Grid.Row>
               <label className="includer-item" aria-current="false" onClick={() => this.handleChangeIncluderOrder()}>Novo Pedido</label>
             </Grid.Row>
@@ -74,19 +82,52 @@ export class Includer extends Component {
             <Grid.Row>
               <label className="includer-item" aria-current="false" onClick={() => this.handleChangeIncluderIncome()}>Nova Entrada</label>
             </Grid.Row>
+            <Grid.Row>
+              <label className="includer-item" aria-current="false" onClick={() => this.handleChangeIncluderCategory()}>Nova Categoria</label>
+            </Grid.Row>
           </Grid>
         </Popup>
-        <IncluderProduct isOpen={this.state.includerProductIsOpen} closeIncluderProduct={this.handleChangeIncluderProduct}/>
-        <IncluderOrder isOpen={this.state.includerOrderIsOpen} closeIncluderOrder={this.handleChangeIncluderOrder}/>
-        <IncluderIncome isOpen={this.state.includerIncomeIsOpen} closeIncluderIncome={this.handleChangeIncluderIncome}/>
-        <IncluderExpense isOpen={this.state.includerExpenseIsOpen} closeIncluderExpense={this.handleChangeIncluderExpense}/>
+        <IncluderProduct
+          isOpen={this.props.includerProductIsOpen}
+          closeIncluderProduct={this.handleChangeIncluderProduct}
+        />
+        <IncluderOrder
+          isOpen={false}
+          closeIncluderOrder={this.handleChangeIncluderOrder}
+        />
+        <IncluderIncome
+          onSubmit={this.saveIncome}
+          categories={this.props.categories}
+          isOpen={this.props.includerIncomeIsOpen}
+          closeIncluderIncome={this.handleChangeIncluderIncome}
+        />
+        <IncluderExpense
+          isOpen={this.props.includerExpenseIsOpen}
+          categories={this.props.categories}
+          closeIncluderExpense={this.handleChangeIncluderExpense}
+        />
+        <IncluderCategory
+          onSubmit={this.saveCategory}
+          isOpen={this.props.includerCategoryIsOpen}
+          categories={this.props.categories}
+          closeIncluderCategory={this.handleChangeIncluderCategory}
+        />
       </div>
     )
   }
 }
-
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ fetchCategories: fetchCategories}, dispatch);
+function mapStateToProps(state) {
+  return {
+    categories: state.categories,
+    includerCategoryIsOpen: state.includer.includerCategoryIsOpen,
+    includerProductIsOpen: state.includer.includerProductIsOpen,
+    includerIncomeIsOpen: state.includer.includerIncomeIsOpen,
+    includerExpenseIsOpen: state.includer.includerExpenseIsOpen
+  };
 }
 
-export default connect(null, mapDispatchToProps)(Includer);
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ fetchCategories: fetchCategories }, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Includer);

@@ -12,4 +12,4 @@ const OrdersScreen = () => {
   );
 }
 
-export default OrdersScreen;
+export { OrdersScreen };

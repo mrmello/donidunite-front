@@ -1,0 +1,13 @@
+.form-field{
+    margin: 0px 10px 25px 10px !important;
+}
+.field-description {
+    max-width: 100%;
+    width: 250px;
+}
+.field-responsible {
+    width: 200px;
+}
+.field-value {
+    width: 100px;
+}

@@ -14,4 +14,4 @@ const FinancialScreen = () => {
   );
 }
 
-export default FinancialScreen;
+export { FinancialScreen };

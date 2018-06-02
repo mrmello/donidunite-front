@@ -1,29 +1,20 @@
 import React from 'react'
 import { Button, Dialog } from '@material-ui/core';
-import { Field, reduxForm } from 'redux-form'
+import { Field, reduxForm } from 'redux-form';
 import {
   DialogContent,
   DialogTitle,
 } from '@material-ui/core';
-import { createNumberMask } from 'redux-form-input-masks';
 import { Save } from '@material-ui/icons';
 import FormTextField from '../../../commons/formFields/formTextField'
-import FormDatePicker from '../../../commons/formFields/formDatePicker'
 import FormSelectField from '../../../commons/formFields/formSelectField'
-import FormMoneyField from '../../../commons/formFields/formMoneyField'
-import validate from './includer-validate'
+import validate from './validator'
 
-const FormIncome = ({ isOpen, handleSubmit, closeIncluderIncome, categories, reset }) => {
-
-  const currencyMask = createNumberMask({
-    prefix: 'R$ ',
-    decimalPlaces: 2,
-    locale: 'pt-BR',
-  });
+const FormCategory = ({ isOpen, handleSubmit, closeIncluderCategory, categories, reset }) => {
 
   const handleClose = () => {
     reset()
-    closeIncluderIncome()
+    closeIncluderCategory()
   }
 
   const styles = {
@@ -49,41 +40,13 @@ const FormIncome = ({ isOpen, handleSubmit, closeIncluderIncome, categories, res
             label="Descrição"
             name="description"/>
           <Field
-            component={FormMoneyField}
-            label="Valor R$"
-            name="value"
-            className="form-field field-value"
-            {...currencyMask}
-          />
-          <Field
             component={FormSelectField}
             categories={categories}
-            name="payment"
-            displayBy="name"
-            label="Pagamento"
-            className="field-selector"
-            categoryType="payment"
-          />
-          <Field
-            component={FormSelectField}
-            categories={categories}
-            name="category"
+            name="type"
             label="Categoria"
-            displayBy="name"
+            displayBy="type"
             className="field-selector"
-            categoryType="income"
           />
-          <Field
-            component={FormTextField}
-            label="Responsável"
-            className="form-field field-responsible"
-            name="payee"/>
-          <Field
-            component={FormDatePicker}
-            label="Data"
-            className="form-field field-date"
-            name="date"/>
-          <br />
           <div style={{display: "flex", justifyContent: "flex-end"}}>
             <Button variant="raised" style={styles.button} onClick={handleClose} size="medium">
               Cancelar
@@ -99,11 +62,11 @@ const FormIncome = ({ isOpen, handleSubmit, closeIncluderIncome, categories, res
   )
 }
 
-let InitializeFormIncome = reduxForm({
-  form: 'formIncome',
+let InitializeFormCategory = reduxForm({
+  form: 'formCategory',
   validate,
   enableReinitialize: true,
   destroyOnUnmount: false
-})(FormIncome);
+})(FormCategory);
 
-export default InitializeFormIncome;
+export default InitializeFormCategory;

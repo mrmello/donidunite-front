@@ -1,4 +1,4 @@
-import {  FETCH_CATEGORIES_SUCCEED,  
+import {  FETCH_CATEGORIES_SUCCEED,
           FETCH_CATEGORIES_FAILED }  from '../../actions/types';
 
 export default function(state = [], action) {

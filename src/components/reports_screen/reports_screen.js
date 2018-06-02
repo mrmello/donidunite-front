@@ -10,4 +10,4 @@ const ReportsScreen = () => {
   );
 }
 
-export default ReportsScreen;
+export { ReportsScreen };

@@ -25,7 +25,7 @@ class Incomes extends Component {
           <td>{income.description}</td>
           <td>R$ {income.value.toFixed(2)}</td>
           <td>{income.category.name}</td>
-          <td>{income.payment}</td>
+          <td>{income.payment.name}</td>
           <td>{income.payee}</td>
           <td>{new Date(income.date).toDateString()}</td>
         </tr>

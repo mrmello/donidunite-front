@@ -1,12 +1,19 @@
-import {  FETCH_INCOMES_SUCCEED,
-          FETCH_INCOMES_FAILED } from '../../actions/types';
+import types from '../../actions/types'
 
-export default function(state = [], action) {
+const initialState = {
+  includerIncomeIsOpen: false
+}
+
+export default function(state = initialState, action) {
   switch(action.type){
-  case FETCH_INCOMES_SUCCEED:
+  case types.FETCH_INCOMES_SUCCEED:
     return action.incomes;
-  case FETCH_INCOMES_FAILED:
+  case types.FETCH_INCOMES_FAILED:
     return action.message;
+  case types.SAVE_INCOMES_SUCCEED:
+    return {
+      ...state
+    }
   default:
     return state;
   }

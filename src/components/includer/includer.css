@@ -3,7 +3,7 @@
   right: 45px;
   bottom: 3vh;
   border-radius: 100%;
-  background-color: #ea158d;
+  background-color: #ff4081;
   color: #fff;
   height: 50px;
   width: 50px;
@@ -17,13 +17,13 @@ label.includer-item {
   color: gray
 }
 
-label.includer-item:hover { 
-  color: #ea158d;
+label.includer-item:hover {
+  color: #ff4081;
   cursor: pointer;
 }
 
 .ui.vertically.divided.grid {
-    max-width: 10vw;
+  max-width: 10vw;
 }
 
 button.ui.icon.button.icon-button {
@@ -33,6 +33,7 @@ button.ui.icon.button.icon-button {
 
 .ui.popup {
   z-index: 9;
+  min-width: 100px;
 }
 
 .ui.popup.popup-calendar {
