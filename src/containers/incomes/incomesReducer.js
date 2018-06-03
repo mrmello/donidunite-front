@@ -10,7 +10,7 @@ export default function(state = initialState, action) {
     return action.incomes;
   case types.FETCH_INCOMES_FAILED:
     return action.message;
-  case types.SAVE_INCOMES_SUCCEED:
+  case types.CREATE_INCOMES_SUCCEED:
     return {
       ...state
     }

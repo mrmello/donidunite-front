@@ -4,14 +4,21 @@ import Api from '../../api'
 import {
   toggleCategoryIncluder
 } from '../../components/includer/includerActions'
+import { fetchCategories as refreshCategories } from './categorySelectorActions'
+import {
+  showSuccessFeedback,
+  showFailureFeedback
+} from '../../components/commons/notification/notificationBarActions'
 
-function* saveCategory(action) {
+function* createCategory(action) {
   try {
-    yield call(Api.saveCategory, action.payload);
-    yield put({type: types.SAVE_CATEGORY_SUCCEED});
+    yield call(Api.createCategory, action.payload);
+    yield put({type: types.CREATE_CATEGORY_SUCCEED});
     yield put(toggleCategoryIncluder())
+    yield put(refreshCategories());
+    yield put(showSuccessFeedback());
   } catch (e) {
-    yield put({type: types.SAVE_CATEGORY_FAILED});
+    yield put(showFailureFeedback());
   }
 }
 
@@ -26,7 +33,7 @@ function* fetchCategories(action) {
 
 function* watcherCategorySelectorSaga() {
   yield takeEvery(types.FETCH_CATEGORIES_REQUESTED, fetchCategories);
-  yield takeEvery(types.SAVE_CATEGORY_REQUESTED, saveCategory);
+  yield takeEvery(types.CREATE_CATEGORY_REQUESTED, createCategory);
 }
 
 export default watcherCategorySelectorSaga;

@@ -4,6 +4,6 @@ module.exports = {
     CATEGORY_CREATE         :   '/category/create/',
     INCOMES                 :   '/management/incomes',
     EXPENSES                :   '/management/expenses',
-    INCOME_SAVE             :   '/management/income/create',
+    INCOME_CREATE           :   '/management/income/create',
     ORDERS                  :   '/management/orders',
 }

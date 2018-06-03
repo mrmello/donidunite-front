@@ -60,6 +60,7 @@ const FormExpense = ({ isOpen, handleSubmit, closeIncluderExpense, categories, r
             categories={categories}
             name="payment"
             displayBy="name"
+            saveBy="_id"
             label="Pagamento"
             className="field-selector"
             categoryType="payment"
@@ -70,8 +71,9 @@ const FormExpense = ({ isOpen, handleSubmit, closeIncluderExpense, categories, r
             name="category"
             label="Categoria"
             displayBy="name"
+            saveBy="_id"
             className="field-selector"
-            categoryType="income"
+            categoryType="expense"
           />
           <Field
             component={FormTextField}

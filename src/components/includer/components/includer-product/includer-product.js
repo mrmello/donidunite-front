@@ -1,36 +1,89 @@
-import React, { Component } from 'react';
-import { Button, Modal, Form, Input, Checkbox } from 'semantic-ui-react'
-import './includer-product.css';
-import CategorySelector from '../../../../containers/categorySelector/categorySelector'
+import React from 'react'
+import { Button, Dialog } from '@material-ui/core';
+import { Field, reduxForm } from 'redux-form'
+import {
+  DialogContent,
+  DialogTitle,
+} from '@material-ui/core';
+import { createNumberMask } from 'redux-form-input-masks';
+import { Save } from '@material-ui/icons';
+import FormTextField from '../../../commons/formFields/formTextField'
+import FormSelectField from '../../../commons/formFields/formSelectField'
+import FormMoneyField from '../../../commons/formFields/formMoneyField'
+import validate from './validate'
 
-export default class IncluderProduct extends Component {
+const FormProduct = ({ isOpen, handleSubmit, closeIncluderProduct, categories, reset }) => {
 
-  close = () => {
-    this.props.closeIncluderProduct();
+  const currencyMask = createNumberMask({
+    prefix: 'R$ ',
+    decimalPlaces: 2,
+    locale: 'pt-BR',
+  });
+
+  const handleClose = () => {
+    reset()
+    closeIncluderProduct()
   }
-  render() {
-    return (
-      <div>
-        <Modal open={this.props.isOpen} onClose={this.close} closeIcon>
-          <Modal.Header>Novo Produto</Modal.Header>
-          <Modal.Content>
-            <Form>
-              <Form.Group>
-                <Form.Field control={Input} label='Nome' placeholder='Nome' width={6}/>
-                <Form.Field control={Input} label='Preço' placeholder='Preço' width={4}/>
-                <CategorySelector type="product" label='Categoria' placeholder='Categoria'/>
-              </Form.Group>
-              <Form.Group>
-                <Checkbox label='Ativo' defaultChecked toggle />
-              </Form.Group>
-            </Form>
-          </Modal.Content>
-          <Modal.Actions>
-            <Button color='black' onClick={this.close}>Cancelar</Button>
-            <Button positive icon='checkmark' labelPosition='right' content="Salvar Produto" onClick={this.close} />
-          </Modal.Actions>
-        </Modal>
-      </div>
-    )
+
+  const styles = {
+    button: {
+      marginLeft: "10px",
+      marginTop: "15px",
+    }
   }
+
+  return (
+    <Dialog
+        open={isOpen}
+        onClose={handleClose}
+        aria-labelledby="form-dialog-title"
+      >
+      <DialogTitle id="form-dialog-title" >Novo Produto</DialogTitle>
+      <DialogContent>
+        <form onSubmit={handleSubmit}>
+          <Field
+            component={FormTextField}
+            autofocus
+            className="form-field field-description"
+            label="Descrição"
+            name="description"/>
+          <Field
+            component={FormMoneyField}
+            label="Preço R$"
+            name="value"
+            className="form-field field-value"
+            {...currencyMask}
+          />
+          <Field
+            component={FormSelectField}
+            categories={categories}
+            name="category"
+            label="Categoria"
+            displayBy="name"
+            className="field-selector"
+            categoryType="product"
+          />
+          <br />
+          <div style={{display: "flex", justifyContent: "flex-end"}}>
+            <Button variant="raised" style={styles.button} onClick={handleClose} size="medium">
+              Cancelar
+            </Button>
+            <Button color="primary" type="submit" variant="raised" style={styles.button} size="medium">
+              <Save style={{fontSize: "20px"}}/>
+              Save
+            </Button>
+          </div>
+        </form>
+      </DialogContent>
+    </Dialog>
+  )
 }
+
+let InitializeFormProduct = reduxForm({
+  form: 'formProduct',
+  validate,
+  enableReinitialize: true,
+  destroyOnUnmount: false
+})(FormProduct);
+
+export default InitializeFormProduct;

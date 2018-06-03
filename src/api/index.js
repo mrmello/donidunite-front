@@ -10,6 +10,6 @@ export default {
     fetchIncomes:     ()  => axios.get(`${URL}${endpoints.INCOMES}`),
     fetchExpenses:    ()  => axios.get(`${URL}${endpoints.EXPENSES}`),
     fetchCategories:  ()  => axios.get(`${URL}${endpoints.CATEGORIES}`),
-    saveIncome:       (payload)  => axios.post(`${URL}${endpoints.INCOME_SAVE}`, payload),
-    saveCategory:     (payload)  => axios.post(`${URL}${endpoints.CATEGORY_CREATE}`, payload),
+    createIncome:       (payload)  => axios.post(`${URL}${endpoints.INCOME_CREATE}`, payload),
+    createCategory:     (payload)  => axios.post(`${URL}${endpoints.CATEGORY_CREATE}`, payload),
 }

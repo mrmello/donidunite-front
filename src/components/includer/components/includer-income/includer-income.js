@@ -60,6 +60,7 @@ const FormIncome = ({ isOpen, handleSubmit, closeIncluderIncome, categories, res
             categories={categories}
             name="payment"
             displayBy="name"
+            saveBy="_id"
             label="Pagamento"
             className="field-selector"
             categoryType="payment"
@@ -70,6 +71,7 @@ const FormIncome = ({ isOpen, handleSubmit, closeIncluderIncome, categories, res
             name="category"
             label="Categoria"
             displayBy="name"
+            saveBy="_id"
             className="field-selector"
             categoryType="income"
           />

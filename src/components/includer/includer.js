@@ -2,14 +2,14 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Button, Popup, Grid }  from 'semantic-ui-react'
-import { saveIncome } from '../../containers/incomes/incomesActions'
+import { createIncome } from '../../containers/incomes/incomesActions'
 import {
   toggleCategoryIncluder,
   toggleExpenseIncluder,
   toggleIncomeIncluder,
   toggleProductIncluder
 } from './includerActions'
-import { fetchCategories, saveCategory } from '../../containers/categorySelector/categorySelectorActions';
+import { fetchCategories, createCategory } from '../../containers/categorySelector/categorySelectorActions';
 import Store from '../../store'
 import IncluderProduct          from './components/includer-product/includer-product'
 import IncluderOrder            from './components/includer-order/includer-order'
@@ -52,12 +52,12 @@ export class Includer extends Component {
     Store.dispatch(toggleCategoryIncluder())
   }
 
-  saveIncome(formIncome) {
-    Store.dispatch(saveIncome(formIncome));
+  createIncome(formIncome) {
+    Store.dispatch(createIncome(formIncome));
   }
 
-  saveCategory(formCategory) {
-    Store.dispatch(saveCategory(formCategory));
+  createCategory(formCategory) {
+    Store.dispatch(createCategory(formCategory));
   }
 
   render() {
@@ -89,6 +89,7 @@ export class Includer extends Component {
         </Popup>
         <IncluderProduct
           isOpen={this.props.includerProductIsOpen}
+          categories={this.props.categories}
           closeIncluderProduct={this.handleChangeIncluderProduct}
         />
         <IncluderOrder
@@ -96,7 +97,7 @@ export class Includer extends Component {
           closeIncluderOrder={this.handleChangeIncluderOrder}
         />
         <IncluderIncome
-          onSubmit={this.saveIncome}
+          onSubmit={this.createIncome}
           categories={this.props.categories}
           isOpen={this.props.includerIncomeIsOpen}
           closeIncluderIncome={this.handleChangeIncluderIncome}
@@ -107,7 +108,7 @@ export class Includer extends Component {
           closeIncluderExpense={this.handleChangeIncluderExpense}
         />
         <IncluderCategory
-          onSubmit={this.saveCategory}
+          onSubmit={this.createCategory}
           isOpen={this.props.includerCategoryIsOpen}
           categories={this.props.categories}
           closeIncluderCategory={this.handleChangeIncluderCategory}

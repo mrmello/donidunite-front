@@ -37,14 +37,15 @@ const FormCategory = ({ isOpen, handleSubmit, closeIncluderCategory, categories,
             component={FormTextField}
             autofocus
             className="form-field field-description"
-            label="Descrição"
-            name="description"/>
+            label="Nome"
+            name="name"/>
           <Field
             component={FormSelectField}
             categories={categories}
             name="type"
-            label="Categoria"
+            label="Tipo"
             displayBy="type"
+            saveBy="type"
             className="field-selector"
           />
           <div style={{display: "flex", justifyContent: "flex-end"}}>

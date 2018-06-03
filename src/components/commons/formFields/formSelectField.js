@@ -33,6 +33,7 @@ class SelectField extends React.Component {
       categoryType,
       meta: { touched, error },
       displayBy,
+      saveBy,
       ...custom
     } = this.props;
 
@@ -62,7 +63,7 @@ class SelectField extends React.Component {
           {
             categories.filter(filterCategory).map((category) => {
               return (
-                <MenuItem key={category._id} value={category._id}>{category[displayBy]}</MenuItem>
+                <MenuItem key={category._id} value={category[saveBy]}>{category[displayBy]}</MenuItem>
               )
             })
           }
