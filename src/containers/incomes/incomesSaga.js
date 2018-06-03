@@ -1,6 +1,10 @@
 import { call, put, takeLatest, takeEvery } from 'redux-saga/effects'
 import types from '../../actions/types'
 import Api from '../../api'
+import { fetchIncomes as refreshIncomes } from './incomesActions'
+import {
+  toggleIncomeIncluder
+} from '../../components/includer/includerActions'
 import {
   showSuccessFeedback,
   showFailureFeedback
@@ -19,6 +23,8 @@ function* createIncome(action) {
   try {
     yield call(Api.createIncome, action.payload);
     yield put({type: types.CREATE_INCOMES_SUCCEED});
+    yield put(refreshIncomes())
+    yield put(toggleIncomeIncluder())
     yield put(showSuccessFeedback())
   } catch (e) {
     yield put(showFailureFeedback())

@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Button, Popup, Grid }  from 'semantic-ui-react'
 import { createIncome } from '../../containers/incomes/incomesActions'
+import { createExpense } from '../../containers/expenses/expensesActions'
+import { createProduct } from '../../containers/products/productsActions'
 import {
   toggleCategoryIncluder,
   toggleExpenseIncluder,
@@ -60,6 +62,14 @@ export class Includer extends Component {
     Store.dispatch(createCategory(formCategory));
   }
 
+  createExpense(formExpense) {
+    Store.dispatch(createExpense(formExpense));
+  }
+
+  createProduct(formProduct) {
+    Store.dispatch(createProduct(formProduct));
+  }
+
   render() {
     return (
       <div className="includer">
@@ -88,6 +98,7 @@ export class Includer extends Component {
           </Grid>
         </Popup>
         <IncluderProduct
+          onSubmit={this.createProduct}
           isOpen={this.props.includerProductIsOpen}
           categories={this.props.categories}
           closeIncluderProduct={this.handleChangeIncluderProduct}
@@ -103,6 +114,7 @@ export class Includer extends Component {
           closeIncluderIncome={this.handleChangeIncluderIncome}
         />
         <IncluderExpense
+          onSubmit={this.createExpense}
           isOpen={this.props.includerExpenseIsOpen}
           categories={this.props.categories}
           closeIncluderExpense={this.handleChangeIncluderExpense}

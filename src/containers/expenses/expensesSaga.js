@@ -1,6 +1,14 @@
 import { call, put, takeLatest } from 'redux-saga/effects'
 import types from '../../actions/types'
 import Api from '../../api'
+import { fetchExpenses as refreshExpenses } from './expensesActions'
+import {
+  toggleExpenseIncluder
+} from '../../components/includer/includerActions'
+import {
+  showSuccessFeedback,
+  showFailureFeedback
+} from '../../components/commons/notification/notificationBarActions'
 
 function* fetchExpenses() {
    try {
@@ -11,8 +19,22 @@ function* fetchExpenses() {
    }
 }
 
+function* createExpense(action) {
+  try {
+    yield call(Api.createExpense, action.payload);
+    yield put({type: types.CREATE_EXPENSE_SUCCEEDED});
+    yield put(refreshExpenses())
+    yield put(toggleExpenseIncluder())
+    yield put(showSuccessFeedback())
+  } catch (e) {
+    console.log(e)
+    yield put(showFailureFeedback())
+  }
+}
+
 function* watcherExpensesSaga() {
   yield takeLatest(types.FETCH_EXPENSES_REQUESTED, fetchExpenses);
+  yield takeLatest(types.CREATE_EXPENSE_REQUESTED, createExpense);
 }
 
 export default watcherExpensesSaga;

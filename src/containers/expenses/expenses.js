@@ -25,7 +25,7 @@ class Expenses extends Component {
           <td>{expense.description}</td>
           <td>R$ {expense.value.toFixed(2)}</td>
           <td>{expense.category.name}</td>
-          <td>{expense.payment}</td>
+          <td>{expense.payment.name}</td>
           <td>{expense.payee}</td>
           <td>{new Date(expense.date).toDateString()}</td>
         </tr>

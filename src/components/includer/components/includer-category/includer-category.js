@@ -30,7 +30,7 @@ const FormCategory = ({ isOpen, handleSubmit, closeIncluderCategory, categories,
         onClose={handleClose}
         aria-labelledby="form-dialog-title"
       >
-      <DialogTitle id="form-dialog-title" >Nova Entrada</DialogTitle>
+      <DialogTitle id="form-dialog-title" >Nova Categoria</DialogTitle>
       <DialogContent>
         <form onSubmit={handleSubmit}>
           <Field

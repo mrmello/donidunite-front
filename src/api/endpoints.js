@@ -5,5 +5,7 @@ module.exports = {
     INCOMES                 :   '/management/incomes',
     EXPENSES                :   '/management/expenses',
     INCOME_CREATE           :   '/management/income/create',
+    EXPENSE_CREATE          :   '/management/expense/create',
+    PRODUCT_CREATE          :   '/catalog/product/create',
     ORDERS                  :   '/management/orders',
 }
