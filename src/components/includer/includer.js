@@ -26,7 +26,7 @@ export class Includer extends Component {
     this.props.fetchCategories();
   }
 
-  constructor(props) {
+  constructor() {
     super()
     this.handleChangeIncluderProduct = this.handleChangeIncluderProduct.bind(this)
     this.handleChangeIncluderOrder = this.handleChangeIncluderOrder.bind(this)

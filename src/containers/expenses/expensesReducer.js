@@ -1,12 +1,22 @@
-import {  FETCH_EXPENSES_SUCCEED, 
-          FETCH_EXPENSES_FAILED } from '../../actions/types';
+import types from '../../actions/types';
 
-export default function(state = [], action) {
+const initialState = {
+  expenses: {},
+  selectedExpense: {}
+}
+
+export default function(state = initialState, action) {
   switch(action.type){
-  case FETCH_EXPENSES_SUCCEED:
-    return action.expenses;
-  case FETCH_EXPENSES_FAILED:
-    return action.message;
+  case types.FETCH_EXPENSES_SUCCEED:
+    return {
+      ...state,
+      expenses: action.expenses
+    }
+  case types.EDIT_EXPENSE:
+    return {
+      ...state,
+      selectedExpense: action.payload
+    }
   default:
     return state;
   }

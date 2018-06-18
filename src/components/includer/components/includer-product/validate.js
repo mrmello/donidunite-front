@@ -1,8 +1,8 @@
 export default function(values) {
     const errors = {};
     const requiredFields = [
-      'description',
-      'value',
+      'name',
+      'price',
       'category',
       'active',
     ];

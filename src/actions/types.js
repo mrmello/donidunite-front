@@ -33,4 +33,8 @@ module.exports = {
     OPERATION_FAILED                    : 'OPERATION_FAILED',
     OPERATION_SUCCEEDED                 : 'OPERATION_SUCCEEDED',
     HIDE_FEEDBACK                       : 'HIDE_FEEDBACK',
+    DELETE_EXPENSE_REQUESTED            : 'DELETE_EXPENSE_REQUESTED',
+    DELETE_EXPENSE_SUCCEEDED            : 'DELETE_EXPENSE_SUCCEEDED',
+    DELETE_EXPENSE_FAILED               : 'DELETE_EXPENSE_FAILED',
+    EDIT_EXPENSE                        : 'EDIT_EXPENSE',
 }

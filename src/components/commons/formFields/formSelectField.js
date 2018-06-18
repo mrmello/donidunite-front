@@ -23,7 +23,6 @@ const styles = theme => ({
 class SelectField extends React.Component {
 
   render() {
-
     const {
       classes,
       input,

@@ -8,6 +8,7 @@ const FormDatePicker = ({
     className,
     meta: { touched, error },
   }) => {
+    [...input] = input.value = new Date(input.value)
     return (
         <TextField
         label={label}

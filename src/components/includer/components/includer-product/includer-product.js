@@ -10,6 +10,7 @@ import { Save } from '@material-ui/icons';
 import FormTextField from '../../../commons/formFields/formTextField'
 import FormSelectField from '../../../commons/formFields/formSelectField'
 import FormMoneyField from '../../../commons/formFields/formMoneyField'
+import FormCheckBox from '../../../commons/formFields/formCheckBox'
 import validate from './validate'
 
 const FormProduct = ({ isOpen, handleSubmit, closeIncluderProduct, categories, reset }) => {
@@ -64,8 +65,12 @@ const FormProduct = ({ isOpen, handleSubmit, closeIncluderProduct, categories, r
             className="field-selector"
             categoryType="product"
           />
-          <br />
           <div style={{display: "flex", justifyContent: "flex-end"}}>
+            <Field
+              component={FormCheckBox}
+              name="active"
+              label="Ativo?"
+            />
             <Button variant="raised" style={styles.button} onClick={handleClose} size="medium">
               Cancelar
             </Button>

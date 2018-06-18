@@ -26,15 +26,31 @@ function* createExpense(action) {
     yield put(refreshExpenses())
     yield put(toggleExpenseIncluder())
     yield put(showSuccessFeedback())
+  } catch (_) {
+    yield put(showFailureFeedback())
+  }
+}
+
+function* deleteExpense(action) {
+  try {
+    yield call(Api.deleteExpense, action.payload);
+    yield put(refreshExpenses())
+    yield put(showSuccessFeedback())
   } catch (e) {
     console.log(e)
     yield put(showFailureFeedback())
   }
 }
 
+function* editExpense() {
+  yield put(toggleExpenseIncluder());
+}
+
 function* watcherExpensesSaga() {
   yield takeLatest(types.FETCH_EXPENSES_REQUESTED, fetchExpenses);
   yield takeLatest(types.CREATE_EXPENSE_REQUESTED, createExpense);
+  yield takeLatest(types.DELETE_EXPENSE_REQUESTED, deleteExpense);
+  yield takeLatest(types.EDIT_EXPENSE, editExpense);
 }
 
 export default watcherExpensesSaga;

@@ -14,4 +14,5 @@ export default {
     createCategory:     (payload)  => axios.post(`${URL}${endpoints.CATEGORY_CREATE}`, payload),
     createExpense:      (payload)  => axios.post(`${URL}${endpoints.EXPENSE_CREATE}`, payload),
     createProduct:      (payload)  => axios.post(`${URL}${endpoints.PRODUCT_CREATE}`, payload),
+    deleteExpense:      (payload)  => axios.delete(`${URL}${endpoints.EXPENSES}/${payload}`),
 }

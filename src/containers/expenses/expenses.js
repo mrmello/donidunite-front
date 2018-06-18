@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchExpenses } from './expensesActions';
+import { fetchExpenses, deleteExpense, editExpense } from './expensesActions';
 import { bindActionCreators } from 'redux';
+import EditAndDeleteButtons from '../../components/commons/actionButtons/editAndDeleteButtons'
 import './expenses.css';
 
 class Expenses extends Component {
@@ -10,6 +11,11 @@ class Expenses extends Component {
     this.props.fetchExpenses();
   }
 
+  prepareCategories(expense) {
+    expense.payment = expense.payment._id
+    expense.category = expense.category._id
+    return expense
+  }
 
   renderList() {
     if(!this.props.expenses.map) {
@@ -28,6 +34,14 @@ class Expenses extends Component {
           <td>{expense.payment.name}</td>
           <td>{expense.payee}</td>
           <td>{new Date(expense.date).toDateString()}</td>
+          <td>
+            <EditAndDeleteButtons
+              toDelete={expense._id}
+              deleteAction={deleteExpense}
+              toEdit={this.prepareCategories(expense)}
+              editAction={editExpense}
+            />
+          </td>
         </tr>
       )
     });
@@ -47,6 +61,7 @@ class Expenses extends Component {
                 <th>Pagamento</th>
                 <th>Responsável</th>
                 <th>Data</th>
+                <th>Ações</th>
               </tr>
             </thead>
             <tbody>
@@ -61,7 +76,7 @@ class Expenses extends Component {
 
 function mapStateToProps(state) {
   return {
-    expenses: state.expenses
+    expenses: state.expenses.expenses
   };
 }
 
