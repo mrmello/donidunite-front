@@ -1,8 +1,10 @@
 import types from '../../actions/types';
+import { expenseCreator, expenseEditor } from '../../actions/submitters'
 
 const initialState = {
   expenses: {},
-  selectedExpense: {}
+  selectedExpense: {},
+  onSubmit: expenseCreator,
 }
 
 export default function(state = initialState, action) {
@@ -15,7 +17,8 @@ export default function(state = initialState, action) {
   case types.EDIT_EXPENSE:
     return {
       ...state,
-      selectedExpense: action.payload
+      selectedExpense: action.payload,
+      onSubmit: expenseEditor
     }
   default:
     return state;

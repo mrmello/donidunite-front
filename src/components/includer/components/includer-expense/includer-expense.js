@@ -120,7 +120,8 @@ FormExpense = reduxForm({
 
 FormExpense = connect(
   state => ({
-    initialValues: state.expenses.selectedExpense // pull initial values from account reducer
+    initialValues: state.expenses.selectedExpense,
+    onSubmit: state.expenses.onSubmit
   })
 )(FormExpense)
 

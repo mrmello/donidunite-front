@@ -46,10 +46,22 @@ function* editExpense() {
   yield put(toggleExpenseIncluder());
 }
 
+function* submitEditExpense(action) {
+  try {
+    yield call(Api.editExpense, action.payload);
+    yield put(refreshExpenses())
+    yield put(toggleExpenseIncluder())
+    yield put(showSuccessFeedback())
+  } catch (_) {
+    yield put(showFailureFeedback())
+  }
+}
+
 function* watcherExpensesSaga() {
   yield takeLatest(types.FETCH_EXPENSES_REQUESTED, fetchExpenses);
   yield takeLatest(types.CREATE_EXPENSE_REQUESTED, createExpense);
   yield takeLatest(types.DELETE_EXPENSE_REQUESTED, deleteExpense);
+  yield takeLatest(types.EDIT_EXPENSE_REQUESTED, submitEditExpense);
   yield takeLatest(types.EDIT_EXPENSE, editExpense);
 }
 

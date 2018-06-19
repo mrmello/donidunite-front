@@ -19,3 +19,7 @@ export const editExpense = (expense) => ({
   payload: expense
 })
 
+export const submitEditExpense = (values) => ({
+  type: types.EDIT_EXPENSE_REQUESTED,
+  payload: values
+})
