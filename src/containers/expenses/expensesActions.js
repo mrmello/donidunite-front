@@ -23,3 +23,7 @@ export const submitEditExpense = (values) => ({
   type: types.EDIT_EXPENSE_REQUESTED,
   payload: values
 })
+
+export const clearExpenseForm = () => ({
+  type: types.CLEAR_EXPENSE_FORM
+})

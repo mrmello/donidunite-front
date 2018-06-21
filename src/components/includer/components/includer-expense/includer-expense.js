@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { Button, Dialog } from '@material-ui/core';
 import { Field, reduxForm } from 'redux-form'
 import { connect } from 'react-redux';
+import { clearExpenseForm } from '../../../../containers/expenses/expensesActions'
+import Store from '../../../../store'
 import {
   DialogContent,
   DialogTitle,
@@ -34,6 +36,7 @@ class FormExpense extends Component {
     const handleClose = () => {
       reset()
       closeIncluderExpense()
+      Store.dispatch(clearExpenseForm())
     }
     return (
       <Dialog

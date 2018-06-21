@@ -20,6 +20,12 @@ export default function(state = initialState, action) {
       selectedExpense: action.payload,
       onSubmit: expenseEditor
     }
+  case types.CLEAR_EXPENSE_FORM:
+    return {
+      ...state,
+      selectedExpense: initialState.selectedExpense,
+      onSubmit: initialState.onSubmit
+    }
   default:
     return state;
   }

@@ -38,4 +38,5 @@ module.exports = {
     DELETE_EXPENSE_FAILED               : 'DELETE_EXPENSE_FAILED',
     EDIT_EXPENSE                        : 'EDIT_EXPENSE',
     EDIT_EXPENSE_REQUESTED              : 'EDIT_EXPENSE_REQUESTED',
+    CLEAR_EXPENSE_FORM                  : 'CLEAR_EXPENSE_FORM',
 }

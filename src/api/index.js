@@ -15,5 +15,5 @@ export default {
     createExpense:      (payload)  => axios.post(`${URL}${endpoints.EXPENSE_CREATE}`, payload),
     editExpense:        (payload)  => axios.put(`${URL}${endpoints.EXPENSE_EDIT}/${payload._id}`, payload),
     createProduct:      (payload)  => axios.post(`${URL}${endpoints.PRODUCT_CREATE}`, payload),
-    deleteExpense:      (payload)  => axios.delete(`${URL}${endpoints.EXPENSES}/${payload}`),
+    deleteExpense:      (payload)  => axios.delete(`${URL}${endpoints.EXPENSE_DELETE}/${payload}`),
 }

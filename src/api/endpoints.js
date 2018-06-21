@@ -7,6 +7,7 @@ module.exports = {
     INCOME_CREATE           :   '/management/income/create',
     EXPENSE_CREATE          :   '/management/expense/create',
     EXPENSE_EDIT            :   '/management/expense',
+    EXPENSE_DELETE          :   '/management/expense',
     PRODUCT_CREATE          :   '/catalog/product/create',
     ORDERS                  :   '/management/orders',
 }
