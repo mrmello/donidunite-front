@@ -31,9 +31,37 @@ function* createIncome(action) {
   }
 }
 
+function* deleteIncome(action) {
+  try {
+    yield call(Api.deleteIncome, action.payload);
+    yield put(refreshIncomes())
+    yield put(showSuccessFeedback())
+  } catch (e) {
+    yield put(showFailureFeedback())
+  }
+}
+
+function* editIncome() {
+  yield put(toggleIncomeIncluder());
+}
+
+function* submitEditIncome(action) {
+  try {
+    yield call(Api.editIncome, action.payload);
+    yield put(refreshIncomes())
+    yield put(toggleIncomeIncluder())
+    yield put(showSuccessFeedback())
+  } catch (_) {
+    yield put(showFailureFeedback())
+  }
+}
+
 function* watcherIncomesSaga() {
   yield takeLatest(types.FETCH_INCOMES_REQUESTED, fetchIncomes);
   yield takeEvery(types.CREATE_INCOMES_REQUESTED, createIncome);
+  yield takeLatest(types.DELETE_INCOME_REQUESTED, deleteIncome);
+  yield takeLatest(types.EDIT_INCOME_REQUESTED, submitEditIncome);
+  yield takeLatest(types.EDIT_INCOME, editIncome);
 }
 
 export default watcherIncomesSaga;

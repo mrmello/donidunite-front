@@ -103,7 +103,6 @@ class Includer extends Component {
           closeIncluderOrder={this.handleChangeIncluderOrder}
         />
         <IncluderIncome
-          onSubmit={this.createIncome}
           categories={this.props.categories}
           isOpen={this.props.includerIncomeIsOpen}
           closeIncluderIncome={this.handleChangeIncluderIncome}

@@ -37,7 +37,6 @@ function* deleteExpense(action) {
     yield put(refreshExpenses())
     yield put(showSuccessFeedback())
   } catch (e) {
-    console.log(e)
     yield put(showFailureFeedback())
   }
 }

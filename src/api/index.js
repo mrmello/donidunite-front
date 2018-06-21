@@ -14,6 +14,8 @@ export default {
     createCategory:     (payload)  => axios.post(`${URL}${endpoints.CATEGORY_CREATE}`, payload),
     createExpense:      (payload)  => axios.post(`${URL}${endpoints.EXPENSE_CREATE}`, payload),
     editExpense:        (payload)  => axios.put(`${URL}${endpoints.EXPENSE_EDIT}/${payload._id}`, payload),
+    editIncome:         (payload)  => axios.put(`${URL}${endpoints.INCOME_EDIT}/${payload._id}`, payload),
     createProduct:      (payload)  => axios.post(`${URL}${endpoints.PRODUCT_CREATE}`, payload),
     deleteExpense:      (payload)  => axios.delete(`${URL}${endpoints.EXPENSE_DELETE}/${payload}`),
+    deleteIncome:       (payload)  => axios.delete(`${URL}${endpoints.INCOME_DELETE}/${payload}`),
 }

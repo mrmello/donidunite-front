@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchIncomes } from './incomesActions';
+import { fetchIncomes, deleteIncome, editIncome } from './incomesActions';
 import { bindActionCreators } from 'redux';
+import EditAndDeleteButtons from '../../components/commons/actionButtons/editAndDeleteButtons'
 import './incomes.css';
 
 class Incomes extends Component {
@@ -10,6 +11,11 @@ class Incomes extends Component {
     this.props.fetchIncomes();
   }
 
+  prepareCategories(income) {
+    income.payment = income.payment._id
+    income.category = income.category._id
+    return income
+  }
 
   renderList() {
     if(!this.props.incomes.map) {
@@ -28,6 +34,14 @@ class Incomes extends Component {
           <td>{income.payment.name}</td>
           <td>{income.payee}</td>
           <td>{new Date(income.date).toDateString()}</td>
+          <td>
+            <EditAndDeleteButtons
+              toDelete={income._id}
+              deleteAction={deleteIncome}
+              toEdit={this.prepareCategories(income)}
+              editAction={editIncome}
+            />
+          </td>
         </tr>
       )
     });
@@ -47,6 +61,7 @@ class Incomes extends Component {
                 <th>Pagamento</th>
                 <th>Responsável</th>
                 <th>Data</th>
+                <th>Ações</th>
               </tr>
             </thead>
             <tbody>
@@ -61,7 +76,7 @@ class Incomes extends Component {
 
 function mapStateToProps(state) {
   return {
-    incomes: state.incomes
+    incomes: state.incomes.incomes
   };
 }
 
