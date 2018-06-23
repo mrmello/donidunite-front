@@ -4,6 +4,7 @@ import { fetchExpenses, deleteExpense, editExpense } from './expensesActions';
 import { bindActionCreators } from 'redux';
 import EditAndDeleteButtons from '../../components/commons/actionButtons/editAndDeleteButtons'
 import './expenses.css';
+import { formatDateToPicker, formatDateToDsiplay } from '../../utils';
 
 class Expenses extends Component {
 
@@ -11,9 +12,10 @@ class Expenses extends Component {
     this.props.fetchExpenses();
   }
 
-  prepareCategories(expense) {
+  beforeEdit(expense) {
     expense.payment = expense.payment._id
     expense.category = expense.category._id
+    expense.date = formatDateToPicker(expense.date)
     return expense
   }
 
@@ -33,12 +35,12 @@ class Expenses extends Component {
           <td>{expense.category.name}</td>
           <td>{expense.payment.name}</td>
           <td>{expense.payee}</td>
-          <td>{new Date(expense.date).toDateString()}</td>
+          <td>{formatDateToDsiplay(expense.date)}</td>
           <td>
             <EditAndDeleteButtons
               toDelete={expense._id}
               deleteAction={deleteExpense}
-              toEdit={this.prepareCategories(expense)}
+              toEdit={this.beforeEdit(expense)}
               editAction={editExpense}
             />
           </td>

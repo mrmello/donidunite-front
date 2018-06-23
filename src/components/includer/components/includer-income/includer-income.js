@@ -45,7 +45,7 @@ class FormIncome extends Component {
           onClose={handleClose}
           aria-labelledby="form-dialog-title"
         >
-        <DialogTitle id="form-dialog-title" >Nova Despesa</DialogTitle>
+        <DialogTitle id="form-dialog-title" >Nova Entrada</DialogTitle>
         <DialogContent>
           <form onSubmit={handleSubmit}>
             <Field
