@@ -22,12 +22,20 @@ function* fetchProducts(action) {
 function* createProduct(action) {
   try {
     yield call(Api.createProduct, action.payload);
-    yield put({type: types.CREATE_PRODUCT_SUCCEEDED});
     yield put(refreshProducts())
     yield put(toggleProductIncluder())
     yield put(showSuccessFeedback())
   } catch (e) {
-    console.log(e)
+    yield put(showFailureFeedback())
+  }
+}
+
+function* deleteProduct(action) {
+  try {
+    yield call(Api.deleteProduct, action.payload);
+    yield put(refreshProducts())
+    yield put(showSuccessFeedback())
+  } catch (e) {
     yield put(showFailureFeedback())
   }
 }
@@ -35,6 +43,7 @@ function* createProduct(action) {
 function* watcherProductsSaga() {
   yield takeLatest(types.FETCH_PRODUCTS_REQUESTED, fetchProducts);
   yield takeLatest(types.CREATE_PRODUCT_REQUESTED, createProduct);
+  yield takeLatest(types.DELETE_PRODUCT_REQUESTED, deleteProduct);
 }
 
 export default watcherProductsSaga;

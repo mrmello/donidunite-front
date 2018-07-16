@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchIncomes, deleteIncome, editIncome } from './incomesActions';
 import { bindActionCreators } from 'redux';
-import EditAndDeleteButtons from '../../components/commons/actionButtons/editAndDeleteButtons'
+import ButtonEdit from '../../components/commons/actionButtons/buttonEdit'
+import ButtonDelete from '../../components/commons/actionButtons/buttonDelete'
 import './incomes.css';
 import { formatDateToDsiplay, formatDateToPicker } from '../../utils';
 
@@ -37,12 +38,8 @@ class Incomes extends Component {
           <td>{income.payee}</td>
           <td>{formatDateToDsiplay(income.date)}</td>
           <td>
-            <EditAndDeleteButtons
-              toDelete={income._id}
-              deleteAction={deleteIncome}
-              toEdit={this.beforeEdit(income)}
-              editAction={editIncome}
-            />
+            <ButtonEdit payload={this.beforeEdit(income)} action={editIncome} />
+            <ButtonDelete payload={income._id} action={deleteIncome} />
           </td>
         </tr>
       )

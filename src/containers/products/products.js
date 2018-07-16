@@ -1,22 +1,32 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
-import { fetchProducts } from './productsActions';
+import { fetchProducts, deleteProduct } from './productsActions';
 import { bindActionCreators } from 'redux';
-import { Card, Icon } from 'semantic-ui-react'
+import { Card } from 'semantic-ui-react'
 import './products.css';
+import ButtonEdit from '../../components/commons/actionButtons/buttonEdit'
+import ButtonDelete from '../../components/commons/actionButtons/buttonDelete'
+import ButtonAddToCart from '../../components/commons/actionButtons/buttonAddToCart';
 
 class Products extends Component {
 
   componentWillMount() {
     this.props.fetchProducts();
-  }  
+  }
+
+  beforeEdit(product) {
+    product.payment = product.payment._id
+    product.category = product.category._id
+    return product
+  }
 
   renderList() {
-    const extra = (
-      <a>
-        <Icon name='plus' />
-        Detalhes
-      </a>
+    const extra = (product) => (
+      <Fragment>
+        <ButtonAddToCart />
+        <ButtonEdit />
+        <ButtonDelete payload={product._id} action={deleteProduct}/>
+      </Fragment>
     )
     if(!this.props.products.map) {
       return (
@@ -25,13 +35,13 @@ class Products extends Component {
     }
     return this.props.products.map((product) => {
       return (
-        <Card 
+        <Card
           image={require('../../assets/donidunite1.png')}
           key={product._id}
           header={product.name}
           meta={product.category.name}
           description={`R$ ${product.price.toFixed(2)}`}
-          extra={extra} raised
+          extra={extra(product)} raised
         />
       )
     });
