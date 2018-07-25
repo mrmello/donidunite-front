@@ -124,7 +124,7 @@ class Includer extends Component {
 }
 function mapStateToProps(state) {
   return {
-    categories: state.categories,
+    categories: state.categories.categories,
     includerCategoryIsOpen: state.includer.includerCategoryIsOpen,
     includerProductIsOpen: state.includer.includerProductIsOpen,
     includerIncomeIsOpen: state.includer.includerIncomeIsOpen,

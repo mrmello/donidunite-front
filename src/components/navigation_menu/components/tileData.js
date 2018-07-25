@@ -5,10 +5,11 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import HomeIcon from '@material-ui/icons/Home';
-import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
-import TrendingUpIcon from '@material-ui/icons/TrendingUp';
+import ShoppingBasket from '@material-ui/icons/ShoppingBasket';
+import AttachMoney from '@material-ui/icons/AttachMoney';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import AssessmentIcon from '@material-ui/icons/Assessment';
+import PieChart from '@material-ui/icons/PieChart';
 import { NavLink } from 'react-router-dom';
 
 export const mailFolderListItems = (
@@ -21,13 +22,13 @@ export const mailFolderListItems = (
     </ListItem>
     <ListItem button component={NavLink} to="/financial">
       <ListItemIcon>
-        <TrendingUpIcon />
+        <AttachMoney />
       </ListItemIcon>
       <ListItemText primary="Financeiro" />
     </ListItem>
     <ListItem button component={NavLink} to="/products">
       <ListItemIcon>
-        <ShoppingBasketIcon />
+        <ShoppingBasket />
       </ListItemIcon>
       <ListItemText primary="Produtos"/>
     </ListItem>
@@ -39,7 +40,7 @@ export const mailFolderListItems = (
     </ListItem>
     <ListItem button component={NavLink} to="/reports">
       <ListItemIcon>
-        <AssessmentIcon />
+        <PieChart />
       </ListItemIcon>
       <ListItemText primary="Relatórios" />
     </ListItem>
