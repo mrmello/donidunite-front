@@ -7,7 +7,7 @@ import {
 } from '@material-ui/core';
 import { Save } from '@material-ui/icons';
 import FormTextField from '../../../commons/formFields/formTextField'
-import FormSelectField from '../../../commons/formFields/formSelectField'
+import TextAutoComplete from '../../../commons/formFields/formTextAutoComplete'
 import validate from './validator'
 
 const FormCategory = ({ isOpen, handleSubmit, closeIncluderCategory, categories, reset }) => {
@@ -40,7 +40,7 @@ const FormCategory = ({ isOpen, handleSubmit, closeIncluderCategory, categories,
             label="Nome"
             name="name"/>
           <Field
-            component={FormSelectField}
+            component={TextAutoComplete}
             categories={categories}
             name="type"
             label="Tipo"

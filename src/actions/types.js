@@ -28,4 +28,18 @@ module.exports = {
     OPERATION_FAILED                    : 'OPERATION_FAILED',
     OPERATION_SUCCEEDED                 : 'OPERATION_SUCCEEDED',
     HIDE_FEEDBACK                       : 'HIDE_FEEDBACK',
+<<<<<<< Updated upstream
+=======
+    DELETE_EXPENSE_REQUESTED            : 'DELETE_EXPENSE_REQUESTED',
+    DELETE_PRODUCT_REQUESTED            : 'DELETE_PRODUCT_REQUESTED',
+    EDIT_EXPENSE                        : 'EDIT_EXPENSE',
+    EDIT_INCOME                         : 'EDIT_INCOME',
+    EDIT_EXPENSE_REQUESTED              : 'EDIT_EXPENSE_REQUESTED',
+    CLEAR_EXPENSE_FORM                  : 'CLEAR_EXPENSE_FORM',
+    CLEAR_INCOME_FORM                   : 'CLEAR_INCOME_FORM',
+    DELETE_INCOME_REQUESTED             : 'DELETE_INCOME_REQUESTED',
+    EDIT_INCOME_REQUESTED               : 'EDIT_INCOME_REQUESTED',
+    DELETE_CATEGORY_REQUESTED           : 'DELETE_CATEGORY_REQUESTED',
+    EDIT_CATEGORY_REQUESTED             : 'EDIT_CATEGORY_REQUESTED',
+>>>>>>> Stashed changes
 }

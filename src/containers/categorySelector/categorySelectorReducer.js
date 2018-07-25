@@ -1,12 +1,23 @@
-import {  FETCH_CATEGORIES_SUCCEED,
-          FETCH_CATEGORIES_FAILED }  from '../../actions/types';
+import types  from '../../actions/types';
+import { categoryCreator } from '../../actions/submitters';
 
-export default function(state = [], action) {
+const initialState = {
+  categories: {},
+  selectedCategory: {},
+  onSubmit: categoryCreator,
+}
+export default function(state = initialState, action) {
   switch(action.type){
-  case FETCH_CATEGORIES_SUCCEED:
-    return action.categories;
-  case FETCH_CATEGORIES_FAILED:
-    return action.message;
+  case types.FETCH_CATEGORIES_SUCCEED:
+  return {
+    ...state,
+    categories: action.categories
+  }
+  case types.EDIT_INCOME:
+    return {
+      ...state,
+      selectedCategory: action.payload
+    }
   default:
     return state;
   }

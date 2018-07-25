@@ -20,6 +20,7 @@ import {
   ReportsScreen,
   OrdersScreen
  } from '../../../components'
+import CategoriesScreen from '../../categories_screen/categories_screen';
 
 const drawerWidth = 240;
 
@@ -145,6 +146,7 @@ class MiniDrawer extends React.Component {
             <Route path="/orders" component={OrdersScreen} />
             <Route path="/financial" component={FinancialScreen} />
             <Route path="/reports" component={ReportsScreen} />
+            <Route path="/categories" component={CategoriesScreen} />
         </main>
       </div>
     );

@@ -43,6 +43,12 @@ export const mailFolderListItems = (
       </ListItemIcon>
       <ListItemText primary="Relatórios" />
     </ListItem>
+    <ListItem button component={NavLink} to="/categories">
+      <ListItemIcon>
+        <AssessmentIcon />
+      </ListItemIcon>
+      <ListItemText primary="Categorias" />
+    </ListItem>
   </div>
 );
 

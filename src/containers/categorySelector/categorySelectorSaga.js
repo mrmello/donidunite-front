@@ -22,7 +22,7 @@ function* createCategory(action) {
   }
 }
 
-function* fetchCategories(action) {
+function* fetchCategories() {
   try {
     const response = yield call(Api.fetchCategories);
     yield put({type: types.FETCH_CATEGORIES_SUCCEED, categories: response.data});
