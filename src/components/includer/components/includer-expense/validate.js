@@ -7,6 +7,7 @@ export default function(values) {
       'category',
       'payee',
       'date',
+      'toWho',
     ];
     requiredFields.forEach(field => {
       if (!values[field]) {

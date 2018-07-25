@@ -10,6 +10,7 @@ import { Save } from '@material-ui/icons';
 import FormTextField from '../../../commons/formFields/formTextField'
 import FormSelectField from '../../../commons/formFields/formSelectField'
 import FormMoneyField from '../../../commons/formFields/formMoneyField'
+import FormCheckBox from '../../../commons/formFields/formCheckBox'
 import validate from './validate'
 
 const FormProduct = ({ isOpen, handleSubmit, closeIncluderProduct, categories, reset }) => {
@@ -45,12 +46,12 @@ const FormProduct = ({ isOpen, handleSubmit, closeIncluderProduct, categories, r
             component={FormTextField}
             autofocus
             className="form-field field-description"
-            label="Descrição"
-            name="description"/>
+            label="Nome"
+            name="name"/>
           <Field
             component={FormMoneyField}
             label="Preço R$"
-            name="value"
+            name="price"
             className="form-field field-value"
             {...currencyMask}
           />
@@ -60,11 +61,16 @@ const FormProduct = ({ isOpen, handleSubmit, closeIncluderProduct, categories, r
             name="category"
             label="Categoria"
             displayBy="name"
+            saveBy="_id"
             className="field-selector"
             categoryType="product"
           />
-          <br />
           <div style={{display: "flex", justifyContent: "flex-end"}}>
+            <Field
+              component={FormCheckBox}
+              name="active"
+              label="Ativo?"
+            />
             <Button variant="raised" style={styles.button} onClick={handleClose} size="medium">
               Cancelar
             </Button>

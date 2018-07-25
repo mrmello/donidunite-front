@@ -1,6 +1,7 @@
 import React from 'react'
 import { TextField } from '@material-ui/core';
 import './fields.css'
+import { formatDateToPicker } from '../../../utils';
 
 const FormDatePicker = ({
     input,
@@ -8,8 +9,9 @@ const FormDatePicker = ({
     className,
     meta: { touched, error },
   }) => {
+    input.value = input.value ? input.value : formatDateToPicker(new Date())
     return (
-        <TextField
+      <TextField
         label={label}
         className={className}
         type="date"

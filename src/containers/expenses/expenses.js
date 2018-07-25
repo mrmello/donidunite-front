@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchExpenses } from './expensesActions';
+import { fetchExpenses, deleteExpense, editExpense } from './expensesActions';
 import { bindActionCreators } from 'redux';
+import ButtonEdit from '../../components/commons/actionButtons/buttonEdit'
+import ButtonDelete from '../../components/commons/actionButtons/buttonDelete'
 import './expenses.css';
+import { formatDateToPicker, formatDateToDsiplay } from '../../utils';
 
 class Expenses extends Component {
 
@@ -10,6 +13,12 @@ class Expenses extends Component {
     this.props.fetchExpenses();
   }
 
+  beforeEdit(expense) {
+    expense.payment = expense.payment._id
+    expense.category = expense.category._id
+    expense.date = formatDateToPicker(expense.date)
+    return expense
+  }
 
   renderList() {
     if(!this.props.expenses.map) {
@@ -25,9 +34,13 @@ class Expenses extends Component {
           <td>{expense.description}</td>
           <td>R$ {expense.value.toFixed(2)}</td>
           <td>{expense.category.name}</td>
-          <td>{expense.payment}</td>
+          <td>{expense.payment.name}</td>
           <td>{expense.payee}</td>
-          <td>{new Date(expense.date).toDateString()}</td>
+          <td>{formatDateToDsiplay(expense.date)}</td>
+          <td>
+            <ButtonEdit payload={this.beforeEdit(expense)} action={editExpense} />
+            <ButtonDelete payload={expense._id} action={deleteExpense} />
+          </td>
         </tr>
       )
     });
@@ -47,6 +60,7 @@ class Expenses extends Component {
                 <th>Pagamento</th>
                 <th>Responsável</th>
                 <th>Data</th>
+                <th>Ações</th>
               </tr>
             </thead>
             <tbody>
@@ -61,7 +75,7 @@ class Expenses extends Component {
 
 function mapStateToProps(state) {
   return {
-    expenses: state.expenses
+    expenses: state.expenses.expenses
   };
 }
 

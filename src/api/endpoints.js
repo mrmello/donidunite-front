@@ -5,5 +5,12 @@ module.exports = {
     INCOMES                 :   '/management/incomes',
     EXPENSES                :   '/management/expenses',
     INCOME_CREATE           :   '/management/income/create',
+    EXPENSE_CREATE          :   '/management/expense/create',
+    EXPENSE_EDIT            :   '/management/expense',
+    EXPENSE_DELETE          :   '/management/expense',
+    INCOME_EDIT             :   '/management/income',
+    INCOME_DELETE           :   '/management/income',
+    PRODUCT_DELETE          :   '/catalog/product',
+    PRODUCT_CREATE          :   '/catalog/product/create',
     ORDERS                  :   '/management/orders',
 }

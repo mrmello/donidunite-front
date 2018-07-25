@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchIncomes } from './incomesActions';
+import { fetchIncomes, deleteIncome, editIncome } from './incomesActions';
 import { bindActionCreators } from 'redux';
+import ButtonEdit from '../../components/commons/actionButtons/buttonEdit'
+import ButtonDelete from '../../components/commons/actionButtons/buttonDelete'
 import './incomes.css';
+import { formatDateToDsiplay, formatDateToPicker } from '../../utils';
 
 class Incomes extends Component {
 
@@ -10,6 +13,12 @@ class Incomes extends Component {
     this.props.fetchIncomes();
   }
 
+  beforeEdit(income) {
+    income.payment = income.payment._id
+    income.category = income.category._id
+    income.date = formatDateToPicker(income.date)
+    return income
+  }
 
   renderList() {
     if(!this.props.incomes.map) {
@@ -27,7 +36,11 @@ class Incomes extends Component {
           <td>{income.category.name}</td>
           <td>{income.payment.name}</td>
           <td>{income.payee}</td>
-          <td>{new Date(income.date).toDateString()}</td>
+          <td>{formatDateToDsiplay(income.date)}</td>
+          <td>
+            <ButtonEdit payload={this.beforeEdit(income)} action={editIncome} />
+            <ButtonDelete payload={income._id} action={deleteIncome} />
+          </td>
         </tr>
       )
     });
@@ -47,6 +60,7 @@ class Incomes extends Component {
                 <th>Pagamento</th>
                 <th>Responsável</th>
                 <th>Data</th>
+                <th>Ações</th>
               </tr>
             </thead>
             <tbody>
@@ -61,7 +75,7 @@ class Incomes extends Component {
 
 function mapStateToProps(state) {
   return {
-    incomes: state.incomes
+    incomes: state.incomes.incomes
   };
 }
 
