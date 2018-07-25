@@ -121,7 +121,7 @@ class MiniDrawer extends React.Component {
               <MenuIcon />
             </IconButton>
             <Typography variant="title" color="inherit" noWrap>
-              Doni Duni-tê
+              Doni Duni-tê - DEVELOPMENT Version
             </Typography>
           </Toolbar>
         </AppBar>
