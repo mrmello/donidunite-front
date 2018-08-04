@@ -40,10 +40,27 @@ function* deleteProduct(action) {
   }
 }
 
+function* editProduct() {
+  yield put(toggleProductIncluder());
+}
+
+function* submitEditProduct(action) {
+  try {
+    yield call(Api.editProduct, action.payload);
+    yield put(refreshProducts())
+    yield put(toggleProductIncluder())
+    yield put(showSuccessFeedback())
+  } catch (_) {
+    yield put(showFailureFeedback())
+  }
+}
+
 function* watcherProductsSaga() {
   yield takeLatest(types.FETCH_PRODUCTS_REQUESTED, fetchProducts);
   yield takeLatest(types.CREATE_PRODUCT_REQUESTED, createProduct);
   yield takeLatest(types.DELETE_PRODUCT_REQUESTED, deleteProduct);
+  yield takeLatest(types.EDIT_PRODUCT, editProduct);
+  yield takeLatest(types.SUBMIT_EDIT_PRODUCT, submitEditProduct);
 }
 
 export default watcherProductsSaga;

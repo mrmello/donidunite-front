@@ -1,13 +1,31 @@
-import {  FETCH_PRODUCTS_SUCCEED,
-          FETCH_PRODUCTS_FAILED }  from '../../actions/types';
+import types from '../../actions/types';
+import { productCreator, productEditor } from '../../actions/submitters'
 
-export default function(state = [], action) {
+const initialState = {
+  products: {},
+  selectedProduct: {},
+  onSubmit: productCreator,
+}
+export default function(state = initialState, action) {
   switch(action.type){
-  case FETCH_PRODUCTS_SUCCEED:
-    return action.products;
-  case FETCH_PRODUCTS_FAILED:
-    return action.message;
-  default:
-    return state;
+    case types.FETCH_PRODUCTS_SUCCEED:
+      return {
+        ...state,
+        products: action.products
+      }
+    case types.EDIT_PRODUCT:
+      return {
+        ...state,
+        selectedProduct: action.payload,
+        onSubmit: productEditor
+      }
+    case types.CLEAR_PRODUCT_FORM:
+      return {
+        ...state,
+        selectedProduct: initialState.selectedProduct,
+        onSubmit: initialState.onSubmit
+      }
+    default:
+      return state;
   }
 }

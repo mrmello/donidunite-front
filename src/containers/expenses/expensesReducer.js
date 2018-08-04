@@ -9,24 +9,24 @@ const initialState = {
 
 export default function(state = initialState, action) {
   switch(action.type){
-  case types.FETCH_EXPENSES_SUCCEED:
-    return {
-      ...state,
-      expenses: action.expenses
-    }
-  case types.EDIT_EXPENSE:
-    return {
-      ...state,
-      selectedExpense: action.payload,
-      onSubmit: expenseEditor
-    }
-  case types.CLEAR_EXPENSE_FORM:
-    return {
-      ...state,
-      selectedExpense: initialState.selectedExpense,
-      onSubmit: initialState.onSubmit
-    }
-  default:
-    return state;
+    case types.FETCH_EXPENSES_SUCCEED:
+      return {
+        ...state,
+        expenses: action.expenses
+      }
+    case types.EDIT_EXPENSE:
+      return {
+        ...state,
+        selectedExpense: action.payload,
+        onSubmit: expenseEditor
+      }
+    case types.CLEAR_EXPENSE_FORM:
+      return {
+        ...state,
+        selectedExpense: initialState.selectedExpense,
+        onSubmit: initialState.onSubmit
+      }
+    default:
+      return state;
   }
 }
