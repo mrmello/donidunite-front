@@ -3,8 +3,7 @@ export default function(values) {
     const requiredFields = [
       'name',
       'price',
-      'category',
-      'active',
+      'category'
     ];
     requiredFields.forEach(field => {
       if (!values[field]) {

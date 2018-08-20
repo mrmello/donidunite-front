@@ -1,7 +1,7 @@
 import { call, put, takeLatest } from 'redux-saga/effects'
 import types from '../../actions/types'
 import Api from '../../api'
-import { fetchProducts as refreshProducts } from './productsActions'
+import { fetchProducts as refreshProducts, clearProductForm } from './productsActions'
 import {
   toggleProductIncluder
 } from '../../components/includer/includerActions'
@@ -49,6 +49,7 @@ function* submitEditProduct(action) {
     yield call(Api.editProduct, action.payload);
     yield put(refreshProducts())
     yield put(toggleProductIncluder())
+    yield put(clearProductForm())
     yield put(showSuccessFeedback())
   } catch (_) {
     yield put(showFailureFeedback())
